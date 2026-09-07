@@ -179,19 +179,15 @@
     <div class="center rv">
       <span class="eyebrow">Before and after</span>
       <h2 class="title">Real transformations</h2>
-      <p class="lede">Drag the handle to see how each job started and how it was left.</p>
+      <p class="lede">Each clip shows how the job started and how it was left. They play as you scroll to them.</p>
     </div>
     <div class="zig">
 
       <article class="zig-row rv">
         <div class="zig-media">
-          <div class="ba" data-ba>
-            <img src="{{ASSET:t1_before.webp}}" alt="Chimney stack with weathered, crumbling mortar joints before repointing">
-            <div class="after-wrap"><img src="{{ASSET:t1_after.webp}}" alt="The same chimney stack after repointing, with clean fresh mortar joints and the lead flashing at its base"></div>
-            <div class="ba-lbl b">Before</div>
-            <div class="ba-lbl a">After</div>
-            <div class="ba-handle"><span class="ba-knob"><svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
-          </div>
+          <video class="zig-video" muted loop playsinline preload="metadata" poster="{{ASSET:t1-poster.webp}}" data-scrollplay aria-label="Chimney stack going from open, weathered mortar joints to freshly repointed brickwork">
+            <source src="{{ASSET:t1.mp4}}" type="video/mp4">
+          </video>
         </div>
         <div class="zig-copy">
           <span class="num">Project 01</span>
@@ -611,6 +607,20 @@
     };
     restartHero();
   } else if (dotsBox) { dotsBox.style.display = "none"; }
+
+  /* ---------- transformation videos: play when scrolled into view, pause when out ---------- */
+  var scrollVids = Array.prototype.slice.call(document.querySelectorAll("video[data-scrollplay]"));
+  if (scrollVids.length){
+    var playVid = function(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
+    if ("IntersectionObserver" in window){
+      var vio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if (en.isIntersecting) playVid(en.target); else en.target.pause(); });
+      }, {threshold:0.35});
+      scrollVids.forEach(function(v){ vio.observe(v); });
+    } else {
+      scrollVids.forEach(playVid);
+    }
+  }
 
   /* ---------- before / after sliders ---------- */
   document.querySelectorAll("[data-ba]").forEach(function(ba){
