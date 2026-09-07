@@ -1,0 +1,831 @@
+<!-- Roofers R Us Ltd - project body.
+     Built from the innov8 site-kit golden body. Section order is the house
+     standard and must not be reordered: see rules/HOUSE-RULES.md.
+     Facts come from site.config.js (facts{} records where each came from).
+     Reviews are quoted word for word from the client's Google listing.
+     NEVER hand-edit index.html. Edit this file or site.config.js and re-run. -->
+
+<style>
+/* Per-project geometry only. Colour and type stay with the art direction. */
+/* The logo is a 2.64:1 lockup (roof mark over two lines of type). The golden
+   .hero-logo is a 1:1 box, which would leave most of its height as dead
+   transparent space and push the headline down the fold. */
+.hero-logo{aspect-ratio:1003/380}
+</style>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="{{BUSINESS}} home">
+      <span class="logo-mark" style="background-image:{{VAR:mark.webp}}" role="img" aria-label="{{BUSINESS}} logo"></span>
+      <span class="brand-txt">
+        <b>{{BUSINESS_SHORT}}</b>
+        <span>Roofing for three generations</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#transformations">Transformations</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:{{PHONE_TEL}}" data-track="call">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl">{{PHONE}}</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MOBILE DRAWER ================= -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer-top">
+    <a class="brand" href="#top">
+      <span class="logo-mark" style="background-image:{{VAR:mark.webp}}" aria-hidden="true"></span>
+      <span class="brand-txt"><b>{{BUSINESS_SHORT}}</b><span>Roofing for three generations</span></span>
+    </a>
+    <button class="burger" id="closeDrawer" aria-label="Close menu" style="display:flex">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="#services">Services <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#transformations">Transformations <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#gallery">Our Work <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#reviews">Reviews <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#about">About <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#areas">Areas <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#contact">Contact <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-primary btn-block" href="tel:{{PHONE_TEL}}" data-track="call">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call {{PHONE}}
+    </a>
+    <a class="btn btn-ghost btn-block" href="https://wa.me/{{PHONE_WA}}" target="_blank" rel="noopener">Message on WhatsApp</a>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero s-dark" id="top">
+  <!-- HERO MEDIA: swap the slides below for a single <video class="hero-video" autoplay muted loop playsinline poster="..."><source src="data:video/mp4;base64,..." type="video/mp4"></video> -->
+  <div class="hero-media" id="heroMedia">
+    <div class="hero-slide on" style="background-image:url('{{ASSET:hero1.webp}}')"></div>
+    <div class="hero-slide" style="background-image:{{VAR:hero2.webp}}"></div>
+    <div class="hero-slide" style="background-image:url('{{ASSET:hero3.webp}}')"></div>
+  </div>
+  <div class="hero-scrim"></div>
+
+  <div class="hero-in">
+    <span class="hero-logo logo-mark" style="background-image:{{VAR:logo.webp}}" role="img" aria-label="{{BUSINESS}}, roofing for three generations"></span>
+    <h1>Roof repairs and re-roofing across <em>{{TOWN}}</em> and {{AREA2}}</h1>
+    <p class="hero-sub">Pitched and flat roofing, chimneys, fascias and guttering from a family firm roofing for three generations. Free quotes, honest advice, and the site left clean and tidy.</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#contact">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+        Get a free quote
+      </a>
+      <a class="btn btn-ghost" href="tel:{{PHONE_TEL}}" data-track="call">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        {{PHONE}}
+      </a>
+    </div>
+    <div class="hero-strip">
+      <span class="hero-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{TOWN}} and {{AREA2}}</span>
+      <span class="hero-chip"><svg class="icon" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>Rated 5.0 on Google</span>
+      <span class="hero-chip opt"><svg class="icon" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>Free no obligation quotes</span>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots" aria-hidden="true"></div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="trust s-dark">
+  <div class="wrap" style="padding-inline:0">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <b>{{TOWN}} based</b><span>Covering {{TOWN}} and {{AREA2}}</span>
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <b>5.0 on Google</b><span>35 five star reviews and counting</span>
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <b>Three generations</b><span>A family roofing firm, not a call centre</span>
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+        <b>Accreditations <span class="ph">Placeholder</span></b><span>Send your accreditation logos and they go here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="sec s-light" id="services">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">What we do</span>
+      <h2 class="title">Roofing services in {{TOWN}}</h2>
+      <p class="lede">From a slipped tile to a full re-roof, and the small jobs that stop a big bill later.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Roof Repairs</h3>
+        <p>Slipped tiles, leaks, storm damage and failed flashing put right, usually in a single visit.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <h3>New Roofs and Re-roofing</h3>
+        <p>Stripped back to the timbers and rebuilt with new membrane, treated battens and fresh tiles or slates.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></div>
+        <h3>Flat Roofing</h3>
+        <p>EPDM rubber, fibreglass and felt systems for extensions, garages, porches and dormers.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+        <h3>Chimneys and Leadwork</h3>
+        <p>Repointing, rebuilds, cowls and new lead flashing where the old work has let water in.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg></div>
+        <h3>Fascias, Soffits and Guttering</h3>
+        <p>UPVC replacements and gutter repairs that stop water tracking back into the brickwork.</p>
+      </article>
+      <article class="svc rv">
+        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/></svg></div>
+        <h3>Moss Removal and Maintenance</h3>
+        <p>Roof cleaning, gutter clearing and the small fixes that keep an older roof going.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRANSFORMATIONS ================= -->
+<section class="sec trans s-dark" id="transformations">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Before and after</span>
+      <h2 class="title">Real transformations</h2>
+      <p class="lede">Drag the handle to see how each job started and how it was left.</p>
+    </div>
+    <div class="zig">
+
+      <article class="zig-row rv">
+        <div class="zig-media">
+          <div class="ba" data-ba>
+            <img src="{{ASSET:t1_before.webp}}" alt="Chimney stack with weathered, crumbling mortar joints before repointing">
+            <div class="after-wrap"><img src="{{ASSET:t1_after.webp}}" alt="The same chimney stack after repointing, with clean fresh mortar joints and the lead flashing at its base"></div>
+            <div class="ba-lbl b">Before</div>
+            <div class="ba-lbl a">After</div>
+            <div class="ba-handle"><span class="ba-knob"><svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></svg></span></div>
+          </div>
+        </div>
+        <div class="zig-copy">
+          <span class="num">Project 01</span>
+          <h3>Chimney stack repointed before the weather got in</h3>
+          <p>The mortar on this stack had weathered back to the point where the joints were open and the brick faces were starting to spall. The old mortar was raked out, the joints refilled and struck, and the stack cleaned down, with the lead flashing at the base checked at the same time.</p>
+          <div class="zig-tags"><span>Chimney repointing</span><span>Joints raked out and refilled</span><span>Lead flashing</span><span>Cleaned down</span></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="center" style="margin-top:34px">
+      <p class="lede" style="font-size:13.5px"><span class="ph">Placeholder</span> More before and after pairs drop in here as you send them. A short phone video of the before and after works best.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="sec s-tint" id="gallery">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Our work</span>
+      <h2 class="title">Recent roofing jobs</h2>
+      <p class="lede">Re-roofs, repairs and chimney work around {{TOWN}} and {{AREA2}}.</p>
+    </div>
+    <div class="gal rv" id="gal">
+      <figure class="big"><img loading="lazy" src="{{ASSET:g3.webp}}" alt="Semi-detached bungalow with a new grey tiled roof, the neighbouring half still in its original tiles"><figcaption>Bungalow re-roof in grey tiles</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g1.webp}}" alt="Newly tiled hipped roof with finished ridge and hip lines, seen from the scaffold"><figcaption>Hipped re-roof</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g4.webp}}" alt="Repointed brick chimney stack with lead flashing on a red tiled roof"><figcaption>Chimney repointing and leadwork</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g5.webp}}" alt="New slates laid on a pitched roof alongside the original tiles, with a red ridge"><figcaption>New slate roof section</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g6.webp}}" alt="Re-tiled hipped roof with two brick chimneys, scaffold boards in the foreground"><figcaption>Hipped roof and chimneys</figcaption></figure>
+      <figure class="big"><img loading="lazy" src="{{ASSET:g7.webp}}" alt="New grey interlocking tiles on a pitched roof under a blue sky"><figcaption>Pitched re-roof</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g2.webp}}" alt="Ridge line of a traditional clay tiled roof with the street below"><figcaption>Clay tile roof</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g8.webp}}" alt="Freshly repointed chimney stack with new mortar joints, a roof ladder alongside"><figcaption>Chimney repointed</figcaption></figure>
+    </div>
+
+    <div class="work-cta rv">
+      <button class="btn btn-primary" id="workOpen" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        View all our work
+      </button>
+      <div class="work-count">
+        <svg class="icon" viewBox="0 0 24 24" style="width:15px;height:15px"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        <span id="workCount">8</span> project photographs
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="sec why s-light" id="why">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Why choose us</span>
+      <h2 class="title">Done properly, and you can see it</h2>
+      <p class="lede">Most of a roof is out of sight. The habits below are why customers keep coming back.</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <h3>Photographs throughout</h3>
+        <p>You see what was wrong and what was done, even on the parts of the roof you cannot get to yourself.</p>
+      </article>
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Free honest quotes</h3>
+        <p>We look at the actual roof, tell you what it needs and what can wait, and put it in writing. No pressure.</p>
+      </article>
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Three generations of roofing</h3>
+        <p>A family firm. The person who quotes the job is the person on the roof, not a salesman.</p>
+      </article>
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3>Quick to get out</h3>
+        <p>A leak does not wait for a convenient day. Customers on Google mention repairs done at very short notice.</p>
+      </article>
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Clean and tidy</h3>
+        <p>Sheeted down, cleared up and the drive swept before we leave. One customer got her car washed as well.</p>
+      </article>
+      <article class="why-card rv">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>Genuinely local</h3>
+        <p>Based in {{TOWN}} and working across {{AREA2}}, so we are close by if you need us back.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="sec rev s-tint" id="reviews">
+  <div class="wrap">
+    <div class="rev-head rv">
+      <div>
+        <span class="eyebrow">Reviews</span>
+        <h2 class="title">What our customers say</h2>
+        <p class="lede" style="margin-top:10px">Rated 5.0 from 35 reviews on Google. Every review below is quoted word for word.</p>
+      </div>
+      <div class="rev-score">
+        <div>
+          <b>5.0</b>
+          <small>35 reviews</small>
+        </div>
+        <div>
+          <div class="stars" aria-label="5 out of 5">
+            <svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          </div>
+          <div style="font-size:12.5px;color:var(--paper-muted);margin-top:4px">Google rating, {{BUSINESS}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-view rv" id="revView">
+      <div class="rev-track" id="revTrack"></div>
+    </div>
+    <div class="rev-ctl">
+      <button class="rev-arrow" id="revPrev" aria-label="Previous reviews">
+        <svg class="icon" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="rev-pages" id="revPages"></div>
+      <button class="rev-arrow" id="revNext" aria-label="Next reviews">
+        <svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="rev-plat rv">
+      <p class="rev-plat-lede">Read all 35 reviews on Google, or follow the latest jobs on Facebook.</p>
+      <div class="plat-row">
+        <a class="plat plat-google" href="{{GOOGLE}}" target="_blank" rel="noopener" aria-label="Read our reviews on Google">
+          <span class="plat-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+          <span class="plat-txt"><b>Google Reviews</b><span>5.0 from 35 reviews</span></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        </a>
+        <a class="plat plat-fb" href="{{FACEBOOK}}" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+          <span class="plat-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+          <span class="plat-txt"><b>Facebook</b><span>Follow our latest jobs</span></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec s-light" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-media rv">
+        <div class="main"><img loading="lazy" src="{{ASSET:about1.webp}}" alt="Dave from {{BUSINESS}} standing beside the sign-written company van, with a scaffolded re-roof behind him"></div>
+        <div class="inset"><img loading="lazy" src="{{ASSET:about2.webp}}" alt="{{BUSINESS}} logo and strapline on the rear doors of the van"></div>
+      </div>
+      <div class="about-copy rv">
+        <span class="eyebrow">Meet the owner</span>
+        <h2>{{BUSINESS}}</h2>
+        <p>A family roofing firm covering {{TOWN}} and {{AREA2}}, roofing for three generations. Repairs, re-roofs, flat roofs, chimneys and guttering, all handled by the same small team from the first look at the roof to the last sweep of the drive.</p>
+        <p>The Google reviews say the same things over and over: turned up when they said, showed photographs of the work as it went, and left the place clean. That is the standard, not the exception.</p>
+        <p><span class="ph">Placeholder</span> Your own story goes here. Send how long you have been roofing, who you learned from, and the job you are proudest of, and this gets rewritten in your words.</p>
+        <div class="about-sign">
+          <span class="logo-mark logo-tile" style="background-image:{{VAR:mark.webp}}" aria-hidden="true"></span>
+          <div>
+            <b>Dave <span class="ph">Surname to confirm</span></b>
+            <span>Owner, {{BUSINESS}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AREAS =================
+     areas.webp is a wide crop of the bungalow re-roof: new grey tiles on the
+     left half, the neighbour's original roof on the right. Not used in the hero. -->
+<section class="sec areas s-brand" id="areas">
+  <div class="areas-bg" style="background-image:{{VAR:areas.webp}}" role="img" aria-label="A semi-detached bungalow with its new grey tiled roof, the neighbouring half still in the original tiles"></div>
+  <div class="areas-scrim"></div>
+  <div class="wrap">
+    <div class="area-wrap">
+      <div class="rv">
+        <span class="eyebrow">Where we work</span>
+        <h2 class="title">{{TOWN}}, {{AREA2}} and the surrounding areas</h2>
+        <p class="lede">Based in {{TOWN}} and working across {{AREA2}}. If you are just outside the areas listed it is still worth asking.</p>
+        <div class="hero-btns" style="justify-content:flex-start;margin-top:24px">
+          <a class="btn btn-primary" href="#contact">Check your postcode</a>
+        </div>
+      </div>
+      <div class="chips rv">
+        <span class="chip core"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{TOWN}}</span>
+        <span class="chip"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{AREA2}}</span>
+        <span class="chip ph-chip"><span class="ph">Placeholder</span>Send your full town list</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec s-tint" id="contact">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="title">Tell us about your roof</h2>
+      <p class="lede">Fill this in and it opens WhatsApp with your details already written out. A photograph of the problem helps.</p>
+    </div>
+    <div class="form-grid">
+      <div class="contact-list rv">
+        <a class="contact-row" href="tel:{{PHONE_TEL}}" data-track="call">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><small>Call or text</small><b>{{PHONE}}</b></div>
+        </a>
+        <a class="contact-row" href="mailto:{{EMAIL}}">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <div><small>Email</small><b>{{EMAIL}}</b></div>
+        </a>
+        <a class="contact-row" href="{{FACEBOOK}}" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <div><small>Facebook</small><b>Follow our latest jobs</b></div>
+        </a>
+        <div class="contact-row dupe">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><small>Coverage</small><b>{{TOWN}} and {{AREA2}}</b></div>
+        </div>
+        <div class="contact-row">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><small>Opening hours</small><b><span class="ph">Placeholder</span> To confirm</b></div>
+        </div>
+      </div>
+
+      <form id="quoteForm" class="rv" novalidate>
+        <div class="f2">
+          <label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name" placeholder="Jane Smith"></label>
+          <label class="field"><span>Phone</span><input type="tel" name="phone" required autocomplete="tel" placeholder="07000 000000"></label>
+        </div>
+        <div class="f2">
+          <label class="field"><span>Town or postcode</span><input type="text" name="area" autocomplete="postal-code" placeholder="{{TOWN}}, B60"></label>
+          <label class="field"><span>What do you need</span>
+            <select name="service">
+              <option>Roof repair or leak</option>
+              <option>New roof or re-roof</option>
+              <option>Flat roof</option>
+              <option>Chimney or leadwork</option>
+              <option>Fascias, soffits or guttering</option>
+              <option>Moss removal or maintenance</option>
+              <option>Something else</option>
+            </select>
+          </label>
+        </div>
+        <label class="field"><span>Tell us about the job</span><textarea name="detail" placeholder="What is wrong, roughly how old the roof is, and whether it is urgent."></textarea></label>
+        <button class="btn btn-primary btn-block" type="submit">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+          Send via WhatsApp
+        </button>
+        <p class="form-note">This opens WhatsApp with your message ready to send. Nothing is sent until you press send yourself.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="sec cta s-dark">
+  <div class="cta-bg" style="background-image:{{VAR:hero2.webp}}"></div>
+  <div class="cta-scrim"></div>
+  <div class="wrap rv">
+    <h2>Roof needing attention?</h2>
+    <p>Send a photograph and we will tell you what we think, at no cost. Free quotes across {{TOWN}} and {{AREA2}}.</p>
+    <div class="hero-btns">
+      <a class="btn btn-cyan" href="tel:{{PHONE_TEL}}" data-track="call">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call {{PHONE}}
+      </a>
+      <a class="btn btn-ghost" href="https://wa.me/{{PHONE_WA}}" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        WhatsApp us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot s-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-mark" style="background-image:{{VAR:mark.webp}}" role="img" aria-label="{{BUSINESS}}"></span>
+        <p>Roof repairs, re-roofing, flat roofs, chimneys and guttering across {{TOWN}} and {{AREA2}}. Roofing for three generations.</p>
+        <div class="socials">
+          <a href="{{FACEBOOK}}" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/{{PHONE_WA}}" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Roof repairs</a></li>
+          <li><a href="#services">New roofs and re-roofing</a></li>
+          <li><a href="#services">Flat roofing</a></li>
+          <li><a href="#services">Chimneys and leadwork</a></li>
+          <li><a href="#services">Fascias, soffits and guttering</a></li>
+          <li><a href="#services">Moss removal and maintenance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Areas covered</h4>
+        <ul>
+          <li>{{TOWN}}</li>
+          <li>{{AREA2}}</li>
+          <li>And the surrounding areas</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:{{PHONE_TEL}}" data-track="call">{{PHONE}}</a></li>
+          <li><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+          <li><a href="https://wa.me/{{PHONE_WA}}" target="_blank" rel="noopener">WhatsApp us</a></li>
+          <li><a href="{{FACEBOOK}}" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="{{GOOGLE}}" target="_blank" rel="noopener">Google reviews</a></li>
+        </ul>
+        <div class="accred"><span class="ph">Placeholder</span> Accreditation and insurance logos go here once supplied.</div>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <small>Copyright 2026 {{BUSINESS}}. All rights reserved.</small>
+      <small>Website by <a href="https://innov8workflows.co.uk" target="_blank" rel="noopener">Innov8 Workflows</a></small>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLOAT ================= -->
+<a class="wa" href="https://wa.me/{{PHONE_WA}}" target="_blank" rel="noopener" aria-label="Message us on WhatsApp" data-track="whatsapp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- ================= OUR WORK (full panel) ================= -->
+<div class="work" id="work" role="dialog" aria-modal="true" aria-labelledby="workTitle" aria-hidden="true">
+  <header class="work-top">
+    <div class="work-top-in">
+      <div class="work-id">
+        <span class="logo-mark" style="background-image:{{VAR:mark.webp}}" aria-hidden="true"></span>
+        <div>
+          <b id="workTitle">Our Work</b>
+          <span>Roofing across {{TOWN}} and {{AREA2}}</span>
+        </div>
+      </div>
+      <button class="work-close" id="workClose" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <span class="lbl">Close</span>
+      </button>
+    </div>
+  </header>
+  <div class="work-body">
+    <div class="work-grid" id="workGrid"></div>
+    <div class="work-foot">
+      <a class="btn btn-primary" href="#contact" id="workQuote">Get a quote for your roof</a>
+      <a class="btn btn-ghost" href="tel:{{PHONE_TEL}}" data-track="call" style="color:var(--on-ink);border-color:rgba(255,255,255,.26)">{{PHONE}}</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photo">
+  <button class="lb-close" id="lbClose" aria-label="Close"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav next" id="lbNext" aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var WA = "{{PHONE_WA}}";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById("nav");
+  var onScroll = function(){ nav.classList.toggle("solid", window.scrollY > 40); };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  var drawer = document.getElementById("drawer"), burger = document.getElementById("burger");
+  var openD = function(o){
+    drawer.classList.toggle("open", o);
+    burger.setAttribute("aria-expanded", o ? "true" : "false");
+    document.body.style.overflow = o ? "hidden" : "";
+  };
+  burger.addEventListener("click", function(){ openD(true); });
+  document.getElementById("closeDrawer").addEventListener("click", function(){ openD(false); });
+  drawer.querySelectorAll("nav a").forEach(function(a){ a.addEventListener("click", function(){ openD(false); }); });
+
+  /* ---------- hero slider (swap for a video by replacing #heroMedia contents) ---------- */
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".hero-slide"));
+  var dotsBox = document.getElementById("heroDots"), hi = 0, heroTimer;
+  if (slides.length > 1){
+    slides.forEach(function(_, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = i === 0 ? "on" : "";
+      b.setAttribute("aria-label", "Slide " + (i+1));
+      b.addEventListener("click", function(){ goHero(i); restartHero(); });
+      dotsBox.appendChild(b);
+    });
+    var goHero = function(n){
+      hi = (n + slides.length) % slides.length;
+      slides.forEach(function(s, i){ s.classList.toggle("on", i === hi); });
+      dotsBox.querySelectorAll("button").forEach(function(b, i){ b.classList.toggle("on", i === hi); });
+    };
+    var restartHero = function(){
+      clearInterval(heroTimer);
+      heroTimer = setInterval(function(){ goHero(hi + 1); }, 6000);
+    };
+    restartHero();
+  } else if (dotsBox) { dotsBox.style.display = "none"; }
+
+  /* ---------- before / after sliders ---------- */
+  document.querySelectorAll("[data-ba]").forEach(function(ba){
+    var drag = false;
+    var set = function(clientX){
+      var r = ba.getBoundingClientRect();
+      var p = Math.min(100, Math.max(0, ((clientX - r.left) / r.width) * 100));
+      ba.style.setProperty("--pos", p.toFixed(2) + "%");
+    };
+    var down = function(e){ drag = true; set(e.touches ? e.touches[0].clientX : e.clientX); };
+    var move = function(e){
+      if (!drag) return;
+      if (e.touches) { set(e.touches[0].clientX); }
+      else { e.preventDefault(); set(e.clientX); }
+    };
+    var up = function(){ drag = false; };
+    ba.addEventListener("mousedown", down);
+    ba.addEventListener("touchstart", down, {passive:true});
+    window.addEventListener("mousemove", move);
+    window.addEventListener("touchmove", move, {passive:true});
+    window.addEventListener("mouseup", up);
+    window.addEventListener("touchend", up);
+    ba.addEventListener("click", function(e){ set(e.clientX); });
+  });
+
+  /* ---------- gallery, Our Work panel and lightbox ---------- */
+  var gal = document.getElementById("gal");
+  var galFigs = Array.prototype.slice.call(gal.querySelectorAll("figure"));
+  var figs = galFigs.map(function(f){ return f.querySelector("img"); });
+  var countEl = document.getElementById("workCount");
+  if (countEl) countEl.textContent = figs.length;
+
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), li = 0;
+  var work = document.getElementById("work"), workGrid = document.getElementById("workGrid");
+  var lockScroll = function(on){ document.body.style.overflow = on ? "hidden" : ""; };
+
+  var openLb = function(i){
+    li = (i + figs.length) % figs.length;
+    lbImg.src = figs[li].src;
+    lbImg.alt = figs[li].alt;
+    lb.classList.add("open");
+    lockScroll(true);
+  };
+  var closeLb = function(){
+    lb.classList.remove("open");
+    // the Our Work panel is its own scroll container, so only release the page
+    // scroll lock if that panel is not still open behind the lightbox
+    lockScroll(work.classList.contains("open"));
+  };
+  galFigs.forEach(function(f, i){ f.addEventListener("click", function(){ openLb(i); }); });
+  document.getElementById("lbClose").addEventListener("click", closeLb);
+  document.getElementById("lbPrev").addEventListener("click", function(e){ e.stopPropagation(); openLb(li - 1); });
+  document.getElementById("lbNext").addEventListener("click", function(e){ e.stopPropagation(); openLb(li + 1); });
+  lb.addEventListener("click", function(e){ if (e.target === lb) closeLb(); });
+
+  /* the panel is populated once, on first open, by cloning the gallery figures.
+     Cloning copies the data URI by reference, so nothing is embedded twice. */
+  var workBuilt = false;
+  var buildWork = function(){
+    if (workBuilt) return;
+    galFigs.forEach(function(f, i){
+      var c = f.cloneNode(true);
+      c.className = "";
+      c.addEventListener("click", function(){ openLb(i); });
+      workGrid.appendChild(c);
+    });
+    workBuilt = true;
+  };
+  var openWork = function(){
+    buildWork();
+    work.classList.add("open");
+    work.setAttribute("aria-hidden", "false");
+    lockScroll(true);
+    work.querySelector(".work-body").scrollTop = 0;
+    document.getElementById("workClose").focus();
+  };
+  var closeWork = function(){
+    work.classList.remove("open");
+    work.setAttribute("aria-hidden", "true");
+    lockScroll(false);
+  };
+  document.getElementById("workOpen").addEventListener("click", openWork);
+  document.getElementById("workClose").addEventListener("click", closeWork);
+  document.getElementById("workQuote").addEventListener("click", closeWork);
+
+  document.addEventListener("keydown", function(e){
+    if (lb.classList.contains("open")){
+      if (e.key === "Escape") closeLb();
+      if (e.key === "ArrowLeft") openLb(li - 1);
+      if (e.key === "ArrowRight") openLb(li + 1);
+      return;
+    }
+    if (e.key === "Escape" && work.classList.contains("open")) closeWork();
+  });
+
+  /* ---------- reviews carousel ---------- */
+  var REVIEWS = [
+    {n:"Steven Cadby", t:"Very good team of roofers! As a landlord I’ve used Roofers R us on several of my properties and they’ve always done a perfect job, there time keeping has always been without any issues.. in some cases they’ve even fitted me in beforehand. I will Definitely recommend Roofers R us for anyone needing any kind of roofing works in the future.", w:"Google review", d:"April 2026"},
+    {n:"Caz", t:"Absolutely amazing job. All without noise and mess always on time . Dave showed us photos of all work they were doing and explained everything. They cleaned everything away and even washed the dust from my car . . Highly recommended.", w:"Google review", d:"November 2025"},
+    {n:"Anthony Wilson", t:"Had Dave and his team come out at very short notice. Fixed a leak in the roof and the gutters done. The team was very professional and very quick at getting the repairs done. Would highly recommend thank you for the top work", w:"Google review", d:"October 2025"}
+  ];
+  var AV = ["#556378","#B4503A","#3D4A5C"];
+  var STAR = '<svg viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>';
+  var track = document.getElementById("revTrack"), pagesBox = document.getElementById("revPages");
+  REVIEWS.forEach(function(r, i){
+    var cell = document.createElement("div");
+    cell.className = "rev-cell";
+    cell.innerHTML =
+      '<article class="rev-card">' +
+        '<div class="rev-top">' +
+          '<div class="rev-av" style="background:' + AV[i % AV.length] + '">' + r.n.charAt(0) + '</div>' +
+          '<div class="rev-who"><b>' + r.n + '</b><span>' + r.w + '</span></div>' +
+        '</div>' +
+        '<div class="stars" aria-label="5 out of 5">' + STAR + STAR + STAR + STAR + STAR + '</div>' +
+        '<p>' + r.t + '</p>' +
+        '<div class="rev-foot">Google review, ' + r.d + '</div>' +
+      '</article>';
+    track.appendChild(cell);
+  });
+
+  var perView = function(){ return window.innerWidth <= 680 ? 1 : (window.innerWidth <= 1024 ? 2 : 3); };
+  var rp = 0, revTimer, pv = perView();
+  var pageCount = function(){ return Math.max(1, Math.ceil(REVIEWS.length / pv)); };
+  var buildPages = function(){
+    pagesBox.innerHTML = "";
+    for (var i = 0; i < pageCount(); i++){
+      (function(i){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Reviews page " + (i+1));
+        b.addEventListener("click", function(){ goRev(i); resetRev(); });
+        pagesBox.appendChild(b);
+      })(i);
+    }
+  };
+  var goRev = function(n){
+    var pc = pageCount();
+    rp = (n + pc) % pc;
+    track.style.transform = "translateX(-" + (rp * 100) + "%)";
+    pagesBox.querySelectorAll("button").forEach(function(b, i){ b.classList.toggle("on", i === rp); });
+  };
+  var resetRev = function(){
+    clearInterval(revTimer);
+    revTimer = setInterval(function(){ goRev(rp + 1); }, 6500);
+  };
+  buildPages(); goRev(0); resetRev();
+  var revView = document.getElementById("revView");
+  revView.addEventListener("mouseenter", function(){ clearInterval(revTimer); });
+  revView.addEventListener("mouseleave", resetRev);
+  document.getElementById("revPrev").addEventListener("click", function(){ goRev(rp - 1); resetRev(); });
+  document.getElementById("revNext").addEventListener("click", function(){ goRev(rp + 1); resetRev(); });
+
+  /* swipe on mobile */
+  var sx = 0, sy = 0, swiping = false;
+  revView.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; swiping = true; }, {passive:true});
+  revView.addEventListener("touchend", function(e){
+    if (!swiping) return;
+    swiping = false;
+    var dx = e.changedTouches[0].clientX - sx;
+    var dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)){ goRev(rp + (dx < 0 ? 1 : -1)); resetRev(); }
+  }, {passive:true});
+
+  var lastPv = pv;
+  window.addEventListener("resize", function(){
+    pv = perView();
+    if (pv !== lastPv){ lastPv = pv; buildPages(); goRev(0); resetRev(); }
+  });
+
+  /* ---------- contact form to WhatsApp ---------- */
+  document.getElementById("quoteForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var f = e.target;
+    var v = function(k){ return (f.elements[k] && f.elements[k].value || "").trim(); };
+    if (!v("name") || !v("phone")){
+      var bad = !v("name") ? f.elements.name : f.elements.phone;
+      bad.focus();
+      bad.style.borderColor = "#E4574C";
+      setTimeout(function(){ bad.style.borderColor = ""; }, 2200);
+      return;
+    }
+    var lines = [
+      "Hi {{BUSINESS}}, I would like a quote.",
+      "",
+      "Name: " + v("name"),
+      "Phone: " + v("phone"),
+      "Area: " + (v("area") || "Not given"),
+      "Service: " + v("service"),
+      "",
+      "Details: " + (v("detail") || "Not given")
+    ];
+    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n"));
+    var win = window.open(url, "_blank");
+    if (!win) window.location.href = url;
+  });
+
+  /* ---------- pause timers while the tab is hidden ---------- */
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden){ clearInterval(heroTimer); clearInterval(revTimer); }
+    else { if (typeof restartHero === "function") restartHero(); resetRev(); }
+  });
+
+  /* ---------- reveal on scroll ---------- */
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.06});
+    document.querySelectorAll(".rv").forEach(function(el, i){
+      el.style.transitionDelay = ((i % 4) * 60) + "ms";
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
+  }
+})();
+</script>

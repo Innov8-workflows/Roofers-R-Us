@@ -1,0 +1,11 @@
+# Whitelist: the built page, its source and the deploy workflow. Raw client
+# photographs and logos stay local (the K: folder is the only copy).
+*
+!.gitignore
+!.github/
+!.github/**
+!index.html
+!build.js
+!site.config.js
+!_src/
+!_src/**
