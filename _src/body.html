@@ -77,9 +77,9 @@
 <section class="hero s-dark" id="top">
   <!-- HERO MEDIA: swap the slides below for a single <video class="hero-video" autoplay muted loop playsinline poster="..."><source src="data:video/mp4;base64,..." type="video/mp4"></video> -->
   <div class="hero-media" id="heroMedia">
-    <div class="hero-slide on" style="background-image:url('{{ASSET:hero1.webp}}')"></div>
-    <div class="hero-slide" style="background-image:{{VAR:hero2.webp}}"></div>
-    <div class="hero-slide" style="background-image:url('{{ASSET:hero3.webp}}')"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ASSET:hero-poster.webp}}" aria-label="Dave from Roofers R Us Ltd beside the company van, with a scaffolded re-roof behind him">
+      <source src="{{ASSET:hero.mp4}}" type="video/mp4">
+    </video>
   </div>
   <div class="hero-scrim"></div>
 
