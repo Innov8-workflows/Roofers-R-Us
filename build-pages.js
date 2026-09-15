@@ -137,7 +137,12 @@ const MIME = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png',
    project site they need the subfolder prefix, so the STAGING build adds it. */
 if (STAGING) {
   home = home.replace('</title>', '</title>\n<meta name="robots" content="noindex,nofollow">');
-  home = home.replace(/(href|src)="\/(?!\/)/g, '$1="' + B);
+  /* Skip paths that already carry the prefix: the asset swap above used
+     asset(), which is already B-prefixed. Without this guard those became
+     /Roofers-R-Us/Roofers-R-Us/assets/... and every image on the preview
+     homepage 404ed (2026-09-15). */
+  const already = B.slice(1).replace(/[.*+?^${}()|[]\]/g, '\$&');
+  home = home.replace(new RegExp('(href|src)="/(?!/|' + already + ')', 'g'), '$1="' + B);
   /* the homepage stylesheet-free build has no url() to rewrite */
 }
 fs.writeFileSync(path.join(OUT, 'index.html'), home);
