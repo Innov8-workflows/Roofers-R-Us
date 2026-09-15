@@ -21,3 +21,7 @@
 !content/
 !content/**
 !BUILD-REPORT.md
+# The Pages preview deploys the STAGING build, so it has to be in the repo.
+# Regenerate with: STAGING_BASE=Roofers-R-Us node generate.js
+!_staging/
+!_staging/**
