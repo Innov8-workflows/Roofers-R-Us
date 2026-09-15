@@ -5,7 +5,22 @@ module.exports = {
 
   /* 'demo' allows placeholders and a 4 MB payload.
      'client' forbids placeholders, forbids base64 video, and drops the budget to 2 MB. */
-  mode: 'demo',
+  mode: 'client',
+
+  /* ---------------------------------------------------------------- ORIGIN --
+     No domain yet - "Preferred website address" is blank on submission #20.
+     origin is the GitHub Pages host for now; the build-out (generate.js) uses
+     it for every canonical, og:url and schema @id. At go-live set it to the
+     real domain and nothing else needs to change. For the Pages preview run
+     STAGING_BASE=Roofers-R-Us node generate.js, which prefixes every link. */
+  origin: 'https://innov8-workflows.github.io',
+  base: '/',
+
+  /* Set when the GA4 property and the Apps Script lead logger exist. Both files
+     are inert while these are empty. */
+  analytics: { ga4: '' },
+  leadLog: { exec: '' },
+  searchConsole: { verification: '' },
 
   /* Contractor Bold: the roofing direction. Near-black ground, hard-edged cards,
      dense rhythm. It is also the register the client's own logo lives in: a
@@ -62,8 +77,21 @@ module.exports = {
   facebook: 'https://www.facebook.com/profile.php?id=61593965793871',
   google: 'https://maps.google.com/?cid=9866434679915512243',
 
-  /* Where each fact came from, so the next session does not have to re-derive it. */
+  /* Where each fact came from, so the next session does not have to re-derive it.
+     Submission #20 (2026-09-07) confirmed PHONE, EMAIL and the Google 5.0/35
+     and added: owner "Davey mark jones deadman" (short: Dave), address "Unit 2
+     Stafford court Stafford Road" with no town or postcode, town "South
+     Birmingham Redditch bromsgrove", hours "24 hours we do emergency call outs",
+     team of 10, story "Been doing this 3 generations", years 15 (confirm[]),
+     guarantee "15 years on replacements" (confirm[]), insured "Yes" (confirm[]),
+     scheme number 16169285 which is the Companies House number. */
   facts: {
+    OWNER_FULL: { value: 'Davey mark jones deadman', source: 'submission #20 owner field, verbatim. NOT published - only "Dave" is used', seen: '2026-09-15' },
+    ADDRESS:    { value: 'Unit 2 Stafford Court, Stafford Road (no town, no postcode)', source: 'submission #20 addr', seen: '2026-09-15' },
+    HOURS:      { value: '24 hours, emergency call outs', source: 'submission #20 openingHours', seen: '2026-09-15' },
+    TEAM:       { value: 'Team of 10', source: 'submission #20 team', seen: '2026-09-15' },
+    GUARANTEE:  { value: '15 years on replacements - NOT PUBLISHED, no certificate', source: 'submission #20 confirm[]', seen: '2026-09-15' },
+    INSURANCE:  { value: 'Yes, 100,000,000 (sic) - NOT PUBLISHED, no certificate', source: 'submission #20 confirm[]', seen: '2026-09-15' },
     PHONE:     { value: '07490 870599', source: 'facebook/about intro AND Google Business Profile (both show the same number)', seen: '2026-09-07' },
     TOWN:      { value: 'Bromsgrove', source: 'facebook/about intro: "Proudly serving Bromsgrove & South Birmingham"; Google pin sits in south Birmingham', seen: '2026-09-07' },
     AREAS:     { value: 'Bromsgrove and South Birmingham', source: 'facebook/about intro. No fuller town list anywhere public', seen: '2026-09-07' },
@@ -88,5 +116,7 @@ module.exports = {
     EMAIL: 'roofersrus@mail.com',
     FACEBOOK: 'https://www.facebook.com/profile.php?id=61593965793871',
     GOOGLE: 'https://maps.google.com/?cid=9866434679915512243',
+    OWNER: 'Dave',
+    COUNTY: 'Worcestershire',
   },
 };

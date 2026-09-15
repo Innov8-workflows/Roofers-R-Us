@@ -9,3 +9,15 @@
 !site.config.js
 !_src/
 !_src/**
+# build-out (2026-09-15): the generator, its content and the report. _site/,
+# _staging/ and _source/ stay out - the first two are regenerable, the third
+# is the client's raw upload.
+!generate.js
+!build-pages.js
+!pages-review.js
+!preview.js
+!analytics-src.js
+!lead-src.js
+!content/
+!content/**
+!BUILD-REPORT.md
