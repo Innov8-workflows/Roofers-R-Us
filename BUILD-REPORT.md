@@ -1,7 +1,16 @@
 # Roofers R Us Ltd - build-out report
 
 Submission **#20** (Roofers r us Ltd, submitted 2026-09-07), fetched 2026-09-15
-into `_source/`. Built 2026-09-15. **NOT deployed.** Marked `built` in the CRM.
+into `_source/`. Built 2026-09-15. Marked `built` in the CRM.
+
+**PREVIEW LIVE** at https://innov8-workflows.github.io/Roofers-R-Us/ since 2026-09-15: the
+Actions workflow now deploys `_staging/` (noindex on every page, robots.txt
+disallows all). `_staging/` is committed to the repo because CI has no site-kit.
+Regenerate and push after any change:
+
+```
+node build.js && STAGING_BASE=Roofers-R-Us node generate.js && git add -A && git commit -m "..." && git push
+```
 
 ```
 node build.js        # rebuilds the demo homepage from _src/body.html (kit engine)
@@ -16,10 +25,8 @@ For the GitHub Pages preview (served from a subfolder, noindex on every page):
 STAGING_BASE=Roofers-R-Us node generate.js && STAGING_BASE=Roofers-R-Us node preview.js
 ```
 
-The Actions workflow still deploys the repo root, i.e. the single demo page.
-Deploying the build-out means either pointing `upload-pages-artifact` at
-`_staging` or going straight to Cloudflare Workers with `_site` once there is a
-domain. Jay's call.
+Going live on a real domain means Cloudflare Workers with `_site/` (`/site-golive`),
+with `origin` in site.config.js set to the domain first.
 
 ---
 
