@@ -63,6 +63,7 @@ const CSP = [
 ].join('; ');
 
 fs.writeFileSync(path.join(OUT, '_headers'), `/*
+  Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
@@ -73,6 +74,9 @@ fs.writeFileSync(path.join(OUT, '_headers'), `/*
 https://:worker.:account.workers.dev/*
   X-Robots-Tag: noindex, nofollow
 `);
+
+/* HSTS added 2026-10-08 at go-live, once Always Use HTTPS and the certificate were
+   both proven. No includeSubDomains: mail/smtp/imap/autodiscover point at 20i StackMail. */
 
 /* ------------------------------------------------------------- homepage --
    Copied. Not regenerated, not re-encoded, no video replaced. */

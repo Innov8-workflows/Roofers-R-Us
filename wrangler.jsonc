@@ -38,9 +38,9 @@
     { "pattern": "www.roofersrus.co.uk", "custom_domain": true }
   ],
 
-  // On until the apex serves over HTTPS, so the site can be checked first. Then
-  // false: left on, it publishes a second complete copy competing in search.
-  "workers_dev": true,
+  // Off since go-live (2026-10-08, apex served 200 over HTTPS from Cloudflare at
+  // 23:53). Left on, it publishes a second complete copy competing in search.
+  "workers_dev": false,
 
   "preview_urls": false
 }
