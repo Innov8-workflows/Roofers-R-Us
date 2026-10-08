@@ -3,14 +3,49 @@
 Submission **#20** (Roofers r us Ltd, submitted 2026-09-07), fetched 2026-09-15
 into `_source/`. Built 2026-09-15. Marked `built` in the CRM.
 
-**PREVIEW LIVE** at https://innov8-workflows.github.io/Roofers-R-Us/ since 2026-09-15: the
-Actions workflow now deploys `_staging/` (noindex on every page, robots.txt
-disallows all). `_staging/` is committed to the repo because CI has no site-kit.
-Regenerate and push after any change:
+## LIVE at https://roofersrus.co.uk
 
+Went live 2026-10-08 on Cloudflare Workers, replacing the Trades Geeks one-pager.
+Registrar GoDaddy (transferred in from 20i 2026-10-07), Cloudflare nameservers
+chin / cleo, Worker `roofers-r-us` (assets plus worker/range.js for /assets/*.mp4).
+
+```bash
+node build.js && node generate.js && node C:/Users/Jay/.claude/site-kit/engine/check.js && npx wrangler deploy
 ```
-node build.js && STAGING_BASE=Roofers-R-Us node generate.js && git add -A && git commit -m "..." && git push
-```
+
+The deploy is inside the chain on purpose: a failed build must never ship.
+NEVER deploy `_staging/` - that is the github.io variant (subfolder links, noindex).
+
+### What changed at go-live
+
+- `site.config.js` origin is https://roofersrus.co.uk, so every canonical, og:url,
+  schema @id and the sitemap rebuilt from it. WA_GREET / WA_SITE tokens: every
+  WhatsApp link opens "Hi Dave, I found you on your website (roofersrus.co.uk)".
+- Zone created with jump_start off, so no parking records came in. Only the mail
+  records were copied from 20i: MX 10 mx.stackmail.com, SPF, and mail / smtp /
+  imap / autodiscover CNAMEs (DNS only). Mail behaves exactly as before the switch.
+- Custom domains attached AFTER Nominet published chin/cleo. Certificates issued in
+  about four minutes.
+- Always Use HTTPS on; www 301 to apex with the query string preserved; HSTS
+  max-age=31536000 in _headers (no includeSubDomains, because of the mail records);
+  workers_dev off.
+- The old site's four photo URLs (/images/*.jpg) are served byte-identical.
+
+### Verified on the live domain
+
+35 pages in headless Chrome: one h1 each, canonicals on roofersrus.co.uk, JSON-LD
+parses, 0 console errors, 0 CSP violations, hero and before/after video playing,
+byte ranges answered (206). www 301, http 301, real 404, cert CN=roofersrus.co.uk
+(Google Trust Services, to 6 Jan 2027). site-security live scan PASS (S1 0, S2 0);
+the pass certificate is in this folder and on the CRM card.
+
+If it looks like the old site from a machine that visited before: cached DNS still
+pointing at 20i (185.151.30.145). `ipconfig /flushdns` and clear the browser host cache.
+
+### The github.io preview
+
+https://innov8-workflows.github.io/Roofers-R-Us/ still serves the staging build
+(noindex). It should be retired now: CRM #949.
 
 ```
 node build.js        # rebuilds the demo homepage from _src/body.html (kit engine)
