@@ -173,9 +173,9 @@ const about = {
    that says it came from the website, so Dave knows where the message came from. */
 const whatsapp = {
   opener: (where) =>
-    'Hi {{BUSINESS}}, I found you on your website and I would like a quote' +
+    'Hi {{WA_GREET}}, I found you on {{WA_SITE}} and would like a quote' +
     (where ? ' ' + where : '') + '.',
-  formOpener: 'Hi {{BUSINESS}}, I found you on your website and I would like a quote.',
+  formOpener: 'Hi {{WA_GREET}}, I found you on {{WA_SITE}} and would like a quote.',
 };
 
 module.exports = { contact, reviews, reviewLinks, review, sharedAreaFaqs, generalFaqs, gallery, galleryAll, about, whatsapp };

@@ -79,7 +79,7 @@ module.exports = function writeReviewPage({ write, G }) {
   const hasGoogle = !!L.googleWrite;
   const primary = hasGoogle
     ? { href: L.googleWrite, label: R.button, note: R.buttonNote, ask: R.ask, mark: G_MARK, ext: true }
-    : { href: 'https://wa.me/' + T.PHONE_WA, label: R.fallbackButton, note: R.fallbackNote,
+    : { href: 'https://wa.me/' + T.PHONE_WA + '?text=' + encodeURIComponent('Hi ' + T.WA_GREET + ', I am messaging from the review page.'), label: R.fallbackButton, note: R.fallbackNote,
         ask: R.fallbackAsk, mark: WA_WHITE, ext: true };
 
 
@@ -190,7 +190,7 @@ module.exports = function writeReviewPage({ write, G }) {
     /* In the WhatsApp fallback the primary button is already WhatsApp, so
        repeating it here would put the same destination on the card twice. */
     (hasGoogle
-      ? '      <a class="pbtn" href="https://wa.me/' + T.PHONE_WA + '" target="_blank" rel="noopener">' + WA + 'WhatsApp</a>\n'
+      ? '      <a class="pbtn" href="https://wa.me/' + T.PHONE_WA + '?text=' + encodeURIComponent('Hi ' + T.WA_GREET + ', I am messaging from the review page.') + '" target="_blank" rel="noopener">' + WA + 'WhatsApp</a>\n'
       : '') +
     '    </div>\n  </div>\n\n' +
     '  <div class="ft">\n' +

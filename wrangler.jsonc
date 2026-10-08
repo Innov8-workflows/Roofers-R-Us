@@ -1,0 +1,41 @@
+{
+  // Assets for every page, plus a Worker that answers ONLY /assets/*.mp4.
+  //
+  // Workers Static Assets ignores the Range header, and iOS will not reliably
+  // play video without byte ranges. This homepage has a looping hero clip and a
+  // scroll-played before and after clip, both in assets/. worker/range.js answers
+  // Range properly; run_worker_first sends only those files through it, so every
+  // HTML page is still served straight from assets and _headers (CSP and the rest)
+  // keeps applying.
+  "name": "roofers-r-us",
+  "main": "worker/range.js",
+  "compatibility_date": "2026-10-08",
+
+  "assets": {
+    "binding": "ASSETS",
+    "run_worker_first": ["/assets/*.mp4"],
+
+    // Production build: plain `node build.js && node generate.js`. NEVER the
+    // STAGING_BASE build, which is subfolder-prefixed and noindexed and writes to
+    // _staging precisely so the two cannot be confused.
+    "directory": "./_site",
+
+    // Serves <slug>/index.html at /<slug>/. Every canonical, the sitemap and all
+    // internal links use the trailing-slash form, so never "drop-trailing-slash".
+    "html_handling": "auto-trailing-slash",
+
+    // A real 404 status for a miss, from _site/404.html.
+    "not_found_handling": "404-page"
+  },
+
+  // NO routes yet. Custom domains are attached AFTER the nameserver change, never
+  // before: attaching them while 20i still answers lets the CA cache the old
+  // delegation and the .uk certificate can sit in Pending Validation for hours
+  // (Fairmont, 2026-09-16).
+
+  // On until the apex serves over HTTPS, so the site can be checked first. Then
+  // false: left on, it publishes a second complete copy competing in search.
+  "workers_dev": true,
+
+  "preview_urls": false
+}

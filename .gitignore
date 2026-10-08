@@ -25,3 +25,7 @@
 # Regenerate with: STAGING_BASE=Roofers-R-Us node generate.js
 !_staging/
 !_staging/**
+# Go-live (2026-10-08): Cloudflare Workers config and the video Range Worker
+!wrangler.jsonc
+!worker/
+!worker/**

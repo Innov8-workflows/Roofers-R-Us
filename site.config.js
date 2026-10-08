@@ -13,7 +13,7 @@ module.exports = {
      it for every canonical, og:url and schema @id. At go-live set it to the
      real domain and nothing else needs to change. For the Pages preview run
      STAGING_BASE=Roofers-R-Us node generate.js, which prefixes every link. */
-  origin: 'https://innov8-workflows.github.io',
+  origin: 'https://roofersrus.co.uk',
   base: '/',
 
   /* Set when the GA4 property and the Apps Script lead logger exist. Both files
@@ -117,6 +117,11 @@ module.exports = {
     FACEBOOK: 'https://www.facebook.com/profile.php?id=61593965793871',
     GOOGLE: 'https://maps.google.com/?cid=9866434679915512243',
     OWNER: 'Dave',
+    /* WhatsApp prefill (house rule 2026-09-29): every wa.me link opens
+       'Hi Dave, I found you on your website (roofersrus.co.uk) and would like a quote.' */
+    OWNER_SHORT: 'Dave',
+    WA_GREET: 'Dave',
+    WA_SITE: 'your website (roofersrus.co.uk)',
     COUNTY: 'Worcestershire',
   },
 };
