@@ -629,6 +629,23 @@ console.log(`${STAGING ? '_staging' : '_site'}: ${urls.length} pages, ${copied +
 console.log(`  ${SERVICES.length} services, ${AREAS.length} areas, ${urls.length - SERVICES.length - AREAS.length} other`);
 if (STAGING) console.log(`  STAGING build - noindex on every page, robots.txt disallows all`);
 
+/* ---------------------------------------------------------- legacy URLs --
+   roofersrus.co.uk (the Trades Geeks one-pager, audited 2026-09-16) served its
+   photos at /images/<name with spaces>.jpg, and the homepage og:image pointed at
+   one of them. Google indexes image URLs on their own, so the same files are
+   served at the same addresses, byte for byte, rather than letting them 404 when
+   the domain moves to this site. Nothing links to them; they are not in the
+   sitemap. Source: _src/legacy/images/ (downloaded from the live site 2026-10-08). */
+{
+  const LEG = path.join(ROOT, '_src', 'legacy', 'images');
+  if (fs.existsSync(LEG)) {
+    fs.mkdirSync(path.join(OUT, 'images'), { recursive: true });
+    const files = fs.readdirSync(LEG);
+    for (const f of files) fs.copyFileSync(path.join(LEG, f), path.join(OUT, 'images', f));
+    console.log('  legacy image URLs kept: ' + files.length);
+  }
+}
+
 /* ------------------------------------------------------- strip comments --
    Developer comments never ship (check.js blocks them in client mode, and Jay
    has seen build notes in DevTools before). The kit's stripper proves each JS
