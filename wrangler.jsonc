@@ -28,10 +28,15 @@
     "not_found_handling": "404-page"
   },
 
-  // NO routes yet. Custom domains are attached AFTER the nameserver change, never
-  // before: attaching them while 20i still answers lets the CA cache the old
-  // delegation and the .uk certificate can sit in Pending Validation for hours
-  // (Fairmont, 2026-09-16).
+  // Custom domains: added AFTER the nameserver change, never before. Attaching them
+  // while 20i still answered would let the CA cache the old delegation and the .uk
+  // certificate can sit in Pending Validation for hours (Fairmont, 2026-09-16).
+  // Attached 2026-10-08 after Nominet RDAP showed chin/cleo.ns.cloudflare.com.
+  // Cloudflare creates the DNS records for these; never hand-add an apex A record.
+  "routes": [
+    { "pattern": "roofersrus.co.uk", "custom_domain": true },
+    { "pattern": "www.roofersrus.co.uk", "custom_domain": true }
+  ],
 
   // On until the apex serves over HTTPS, so the site can be checked first. Then
   // false: left on, it publishes a second complete copy competing in search.
