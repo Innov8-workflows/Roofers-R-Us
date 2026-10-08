@@ -11,6 +11,9 @@
    .hero-logo is a 1:1 box, which would leave most of its height as dead
    transparent space and push the headline down the fold. */
 .hero-logo{aspect-ratio:1003/380}
+/* The area chips link to their pages (2026-10-08), so they need a hover. */
+a.chip{transition:border-color .2s,color .2s}
+a.chip:hover{border-color:var(--brand-lt);color:#fff}
 </style>
 
 <!-- ================= NAV ================= -->
@@ -24,12 +27,12 @@
       </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a>
+      <a href="/services/">Services</a>
       <a href="#transformations">Transformations</a>
       <a href="#gallery">Our Work</a>
       <a href="#reviews">Reviews</a>
       <a href="#about">About</a>
-      <a href="#areas">Areas</a>
+      <a href="/areas-we-cover/">Areas</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -56,12 +59,12 @@
     </button>
   </div>
   <nav>
-    <a href="#services">Services <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="/services/">Services <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     <a href="#transformations">Transformations <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     <a href="#gallery">Our Work <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     <a href="#reviews">Reviews <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     <a href="#about">About <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-    <a href="#areas">Areas <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="/areas-we-cover/">Areas <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
     <a href="#contact">Contact <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
   </nav>
   <div class="drawer-foot">
@@ -380,9 +383,10 @@
         </div>
       </div>
       <div class="chips rv">
-        <span class="chip core"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{TOWN}}</span>
-        <span class="chip"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{AREA2}}</span>
-        <span class="chip"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Redditch</span>
+        <a class="chip core" href="/roofers-in-bromsgrove/"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{TOWN}}</a>
+        <a class="chip" href="/areas-we-cover/"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{AREA2}}</a>
+        <a class="chip" href="/roofers-in-redditch/"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Redditch</a>
+        <a class="chip" href="/areas-we-cover/">All 18 areas we cover <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>

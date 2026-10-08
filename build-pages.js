@@ -628,3 +628,14 @@ fs.writeFileSync(path.join(OUT, 'robots.txt'),
 console.log(`${STAGING ? '_staging' : '_site'}: ${urls.length} pages, ${copied + 1} assets`);
 console.log(`  ${SERVICES.length} services, ${AREAS.length} areas, ${urls.length - SERVICES.length - AREAS.length} other`);
 if (STAGING) console.log(`  STAGING build - noindex on every page, robots.txt disallows all`);
+
+/* ------------------------------------------------------- strip comments --
+   Developer comments never ship (check.js blocks them in client mode, and Jay
+   has seen build notes in DevTools before). The kit's stripper proves each JS
+   file token-for-token unchanged, and refuses rather than guesses. */
+{
+  const strip = require('C:/Users/Jay/.claude/site-kit/engine/strip-comments.js');
+  const r = strip.run(OUT, true);
+  if (r.problems.length) throw new Error('strip-comments could not prove these safe: ' + r.problems.join('; '));
+  console.log(`  stripped ${r.total} developer comments from ${r.changed.length} files`);
+}

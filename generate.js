@@ -103,6 +103,10 @@ const EXTRA_CSS = `
 .prose li{margin-top:7px}
 .prose a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 .prose .linkcard,.prose .btn,.prose .areas-cols a,.prose figure a{text-decoration:none}
+/* .prose a (0,1,1) outranks .btn-primary (0,1,0) and turned the white call
+   button text the same colour as the button. Restore the button colours inside prose. */
+.prose .btn-primary{color:#fff}
+.prose .btn-ghost{color:var(--fg)}
 .prose .linkcard:hover,.prose .areas-cols a:hover{text-decoration:none}
 .inshort{background:var(--card);border:1px solid var(--card-line);border-left:3px solid var(--accent);
   border-radius:var(--r);padding:18px 20px;margin-top:8px}
