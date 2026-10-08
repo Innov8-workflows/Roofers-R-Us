@@ -153,6 +153,7 @@ const gallery = [
   ['g4', 'Repointed brick chimney stack with lead flashing on a red tiled roof', 'Chimney repointing and leadwork'],
   ['g8', 'Freshly repointed chimney stack with new mortar joints, a roof ladder alongside', 'Chimney repointed'],
   ['g2', 'Ridge line of a traditional clay tiled roof with the street below', 'Clay tile roof'],
+  ['g9', 'Dry ridge roll being fitted along the ridge of a red tiled roof, with a roof ladder hooked over the slope', 'Dry ridge going on'],
 ];
 const galleryAll = gallery;
 
