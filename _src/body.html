@@ -21,6 +21,17 @@ a.chip:hover{border-color:var(--brand-lt);color:#fff}
 @media(max-width:680px){.why-photo{margin-top:22px}.why-photo img{aspect-ratio:4/3}}
 /* Team photo in the about overlay (2026-10-08): keep the boots in at the 16:9 tablet crop. */
 .about-media .inset img.inset-team{object-position:50% 85%}
+/* Hero clip sequence. Only the INCOMING clip fades (the outgoing stays fully
+   opaque underneath, so nothing dips dark), and the incoming always sits on a
+   strictly higher layer than the outgoing, including on the wrap from 03 to 01.
+   The transition lives on .on only, so a covered clip is hidden instantly. */
+#heroMedia .hero-video{opacity:0;z-index:0}
+#heroMedia .hero-video.on{opacity:1;transition:opacity 1s ease}
+#heroMedia .hero-video.under{z-index:1}
+#heroMedia .hero-video.top{z-index:2}
+/* The kit's reduced-motion block squashes every transition to .001ms. Jay's own
+   machine runs reduced motion, so keep the fade a fade rather than a hard cut. */
+@media(prefers-reduced-motion:reduce){#heroMedia .hero-video.on{transition-duration:1s !important}}
 </style>
 
 <!-- ================= NAV ================= -->
@@ -87,8 +98,17 @@ a.chip:hover{border-color:var(--brand-lt);color:#fff}
 <section class="hero s-dark" id="top">
   <!-- HERO MEDIA: swap the slides below for a single <video class="hero-video" autoplay muted loop playsinline poster="..."><source src="data:video/mp4;base64,..." type="video/mp4"></video> -->
   <div class="hero-media" id="heroMedia">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ASSET:hero-poster.webp}}" aria-label="Dave from Roofers R Us Ltd beside the company van, with a scaffolded re-roof behind him">
+    <!-- Three clips played in order, 01 > 02 > 03 > back to 01, each fading in on
+         top of the one before. Only the first autoplays and carries the poster; the
+         script starts the others. Without JS the first clip simply loops. -->
+    <video class="hero-video on top" autoplay muted loop playsinline preload="auto" poster="{{ASSET:hero-poster.webp}}" aria-label="Dave from Roofers R Us Ltd beside the company van, with a scaffolded re-roof behind him">
       <source src="{{ASSET:hero.mp4}}" type="video/mp4">
+    </video>
+    <video class="hero-video" muted playsinline preload="auto" aria-hidden="true">
+      <source src="{{ASSET:hero2.mp4}}" type="video/mp4">
+    </video>
+    <video class="hero-video" muted playsinline preload="metadata" aria-hidden="true">
+      <source src="{{ASSET:hero3.mp4}}" type="video/mp4">
     </video>
   </div>
   <div class="hero-scrim"></div>
@@ -621,6 +641,46 @@ a.chip:hover{border-color:var(--brand-lt);color:#fff}
     };
     restartHero();
   } else if (dotsBox) { dotsBox.style.display = "none"; }
+
+  /* ---------- hero clips: 01 > 02 > 03 > 01, each fading in over the last ----------
+     The next clip starts FADE before the current one ends, so the current one is
+     fully covered as it reaches its last frame. All three clips are 5.04 s. */
+  var heroVids = Array.prototype.slice.call(document.querySelectorAll("#heroMedia .hero-video"));
+  if (heroVids.length > 1){
+    var FADE = 1.0, cur = 0, busy = false;
+    var playV = function(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
+    heroVids[0].loop = false;
+    var advance = function(){
+      if (busy) return;
+      busy = true;
+      var out = heroVids[cur], n = (cur + 1) % heroVids.length, inc = heroVids[n];
+      var go = function(){
+        out.classList.remove("top"); out.classList.add("under");
+        inc.classList.add("top");
+        void inc.offsetWidth;
+        inc.classList.add("on");
+        setTimeout(function(){
+          out.classList.remove("on", "under");
+          out.pause();
+          if (!out.seeking && out.readyState >= 2) out.currentTime = 0;
+          cur = n; busy = false;
+          var after = heroVids[(n + 1) % heroVids.length];
+          if (after.preload !== "auto") after.preload = "auto";
+        }, FADE * 1000 + 80);
+      };
+      if (!inc.seeking && inc.readyState >= 1) inc.currentTime = 0;
+      playV(inc);
+      if (inc.readyState >= 3) go();
+      else inc.addEventListener("playing", function once(){ inc.removeEventListener("playing", once); go(); });
+    };
+    var tick = function(){
+      var v = heroVids[cur];
+      if (!busy && v.duration && v.currentTime >= v.duration - FADE - 0.15) advance();
+      requestAnimationFrame(tick);
+    };
+    heroVids.forEach(function(v){ v.addEventListener("ended", function(){ if (v === heroVids[cur]) advance(); }); });
+    requestAnimationFrame(tick);
+  }
 
   /* ---------- transformation videos: play when scrolled into view, pause when out ---------- */
   var scrollVids = Array.prototype.slice.call(document.querySelectorAll("video[data-scrollplay]"));
