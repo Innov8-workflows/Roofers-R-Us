@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  .card{position:relative;width:1200px;height:630px;overflow:hidden;font-family:'Inter',sans-serif;background:#101318}
+  .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%;filter:grayscale(.2)}
+  .wash{position:absolute;inset:0;background:#101318;opacity:.66}
+  .vig{position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 46%,rgba(0,0,0,.12) 0%,rgba(0,0,0,.6) 100%)}
+  .inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 70px 70px}
+  .logo{height:150px;width:auto;display:block;margin-bottom:26px;filter:drop-shadow(0 6px 22px rgba(0,0,0,.5))}
+  h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#fff;font-size:50px;line-height:1.08;letter-spacing:-.015em;text-shadow:0 3px 18px rgba(0,0,0,.55);max-width:1000px}
+  .sub{margin-top:18px;font-size:25px;font-weight:600;color:#E9A48F;line-height:1.35;text-shadow:0 2px 12px rgba(0,0,0,.55)}
+  .sub .dot{opacity:.6;margin:0 10px;color:#fff}
+  .foot{margin-top:20px;font-size:22px;font-weight:600;color:#E8EDF7;letter-spacing:.01em;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+  .foot .dot{opacity:.5;margin:0 12px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="photo" src="team.jpg" alt="">
+    <div class="wash"></div>
+    <div class="vig"></div>
+    <div class="inner">
+      <img class="logo" src="logo.webp" alt="">
+      <h1>Roof repairs and re-roofing across Bromsgrove and South Birmingham</h1>
+      <p class="sub">Rated 5.0 on Google<span class="dot">&middot;</span>24 hour call outs<span class="dot">&middot;</span>Free written quotes</p>
+      <div class="foot">roofersrus.co.uk<span class="dot">&middot;</span>07490 870599</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -87,7 +87,9 @@ let home = fs.readFileSync(homeSrc, 'utf8');
 /* canonical, og: tags and Search Console tag - the kit template emits none */
 home = home.replace('</title>', '</title>\n<link rel="canonical" href="' + ORIGIN + B + '">');
 {
-  const CARD = ORIGIN + asset('og-home.jpg');
+  /* Link card 2026-10-09 (/link-card). NEW filename on purpose: og-home.jpg was a
+     stopgap crop that WhatsApp may already have cached. */
+  const CARD = ORIGIN + asset('og-roofersrus-home.jpg');
   const tags = [
     '<meta property="og:type" content="website">',
     '<meta property="og:site_name" content="' + esc(T.BUSINESS) + '">',

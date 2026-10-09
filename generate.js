@@ -293,7 +293,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")open(false)}
 /* ------------------------------------------------------------------ page -- */
 function shell({ slug, title, desc, body, schema, ogImage }) {
   const canonical = ORIGIN + B + (slug ? slug + '/' : '');
-  const card = ORIGIN + asset(ogImage || 'og-home.jpg');
+  const card = ORIGIN + asset(ogImage || 'og-roofersrus-home.jpg');
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -382,7 +382,7 @@ function bizNode() {
     url: ORIGIN + B,
     telephone: T.PHONE_TEL,
     email: T.EMAIL,
-    image: ORIGIN + asset('og-home.jpg'),
+    image: ORIGIN + asset('og-roofersrus-home.jpg'),
     logo: ORIGIN + asset('logo.webp'),
     address,
     openingHours: SITE.contact.hoursSchema,

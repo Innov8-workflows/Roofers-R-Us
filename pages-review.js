@@ -147,7 +147,7 @@ module.exports = function writeReviewPage({ write, G }) {
     '<meta property="og:url" content="' + ORIGIN + B + 'review/">\n' +
     /* its OWN card, not the site default - otherwise the review link and the
        homepage link produce identical previews in the same WhatsApp thread */
-    '<meta property="og:image" content="' + ORIGIN + asset('card-review.jpg') + '">\n' +
+    '<meta property="og:image" content="' + ORIGIN + asset('og-roofersrus-review.jpg') + '">\n' +
     '<meta name="twitter:card" content="summary_large_image">\n' +
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
