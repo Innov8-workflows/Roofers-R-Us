@@ -125,7 +125,7 @@ const sharedAreaFaqs = [
 ];
 
 const generalFaqs = [
-  ['Do you charge for a quote?', 'No. We come out, look at the roof properly and give you a written price, at no cost and with no obligation to go ahead.'],
+  ['Do you charge for a quote?', 'No. We come out, get on the roof and give you a written price, at no cost and with no obligation to go ahead.'],
   ['How quickly can you come out?', 'The phone is answered 24 hours a day and we do emergency call outs. For a job that is not dripping through the ceiling, Dave’s own words on the form were a one week turnaround.'],
   ['What areas do you cover?', 'Bromsgrove, Redditch and South Birmingham. That takes in Catshill, Barnt Green, Alvechurch and Rubery on the Bromsgrove side, and Kings Norton, Northfield, Longbridge, Selly Oak, Bournville, Kings Heath, Moseley, Hall Green, Harborne, Stirchley and Cotteridge on the Birmingham side.'],
   ['How long have you been roofing?', 'Three generations of the same family. Dave runs a team of ten.'],
@@ -141,7 +141,12 @@ const generalFaqs = [
   ['How do I get in touch?', 'Ring or text {{PHONE}}, message on WhatsApp, or fill in the form on the contact page and it opens WhatsApp with your details already written out.'],
 ];
 
-/* The demo gallery, reused. Dave uploaded no photographs with the submission
+/* g4 and g8 captions corrected 2026-10-14 (/services, by looking): g4 is a
+   rubber flat roof, not a chimney; g8 is the BEFORE shot of the chimney in
+   b-a-01.mp4, not a freshly repointed one. The homepage (_src/body.html)
+   still carries the old wording - frozen, flagged to Jay.
+
+   The demo gallery, reused. Dave uploaded no photographs with the submission
    (0 of 20), so these are the demo's own captions, written from what is in
    frame. check.js fails a client build on a missing alt. */
 const gallery = [
@@ -150,8 +155,8 @@ const gallery = [
   ['g1', 'Newly tiled hipped roof with finished ridge and hip lines, seen from the scaffold', 'Hipped re-roof'],
   ['g6', 'Re-tiled hipped roof with two brick chimneys, scaffold boards in the foreground', 'Hipped roof and chimneys'],
   ['g5', 'New slates laid on a pitched roof alongside the original tiles, with a red ridge', 'New slate roof section'],
-  ['g4', 'Repointed brick chimney stack with lead flashing on a red tiled roof', 'Chimney repointing and leadwork'],
-  ['g8', 'Freshly repointed chimney stack with new mortar joints, a roof ladder alongside', 'Chimney repointed'],
+  ['g4', 'New rubber flat roof on a single-storey extension, trims and drip edge fitted', 'Flat roof on an extension'],
+  ['g8', 'Brick chimney stack before repointing, with lead flashing where it meets the tiles', 'Chimney before repointing'],
   ['g2', 'Ridge line of a traditional clay tiled roof with the street below', 'Clay tile roof'],
   ['g9', 'Dry ridge roll being fitted along the ridge of a red tiled roof, with a roof ladder hooked over the slope', 'Dry ridge going on'],
 ];

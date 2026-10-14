@@ -1,0 +1,608 @@
+{
+  "built": "2026-10-14",
+  "project": "Roofers R US LTD",
+  "note": "Tags are written by looking at each item (contact sheets) or from the client caption. tags.services holds service slugs from content/services.js. exclude:true keeps an item off service pages (with why).",
+  "items": [
+    {
+      "id": "m01",
+      "kind": "image",
+      "file": "b1.jpeg",
+      "copies": [
+        "_src/assets/t1-poster.webp",
+        "_src/assets/g8.webp"
+      ],
+      "w": 1536,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "e4c4cccd8f86646d",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "chimneys-and-leadwork"
+        ],
+        "stage": "before",
+        "shows": "Weathered brick chimney stack before repointing, lead flashing at the base",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "Brick chimney stack before repointing, with lead flashing where it meets the tiles",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m01.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m02",
+      "kind": "image",
+      "file": "8.jpg",
+      "copies": [
+        "_src/assets/g4.webp"
+      ],
+      "w": 1536,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "c7614e83980a0e0c",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "flat-roofing"
+        ],
+        "stage": "after",
+        "shows": "New rubber flat roof over a single-storey extension, trims and drip edge fitted",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "New rubber flat roof on a single-storey extension",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m02.webp",
+      "aw": 1536,
+      "ah": 2048
+    },
+    {
+      "id": "m03",
+      "kind": "image",
+      "file": "5.jpeg",
+      "copies": [
+        "_src/assets/g3.webp"
+      ],
+      "w": 1536,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "cf4b67739357f3d2",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "Semi-detached bungalow with a new grey tiled roof",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Bungalow re-roofed in grey concrete tiles",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m03.webp",
+      "aw": 1536,
+      "ah": 2048
+    },
+    {
+      "id": "m04",
+      "kind": "image",
+      "file": "7.jpg",
+      "copies": [
+        "_src/assets/g7.webp"
+      ],
+      "w": 1536,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "f5df8e17aeff7fb3",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "during",
+        "shows": "New grey interlocking tiles going on, seen from the scaffold",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "New grey interlocking tiles on a pitched roof, seen from the scaffold",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m04.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m05",
+      "kind": "image",
+      "file": "4.jpeg",
+      "copies": [
+        "_src/assets/g5.webp"
+      ],
+      "w": 1536,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "6163614a8165feb5",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing",
+          "roof-repairs"
+        ],
+        "stage": "after",
+        "shows": "New slates on one slope beside the old tiles, red ridge, chimney behind",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "New slates laid on a pitched roof with a red ridge",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m05.webp",
+      "aw": 1536,
+      "ah": 2048
+    },
+    {
+      "id": "m06",
+      "kind": "image",
+      "file": "6.jpeg",
+      "copies": [
+        "a1.jpeg"
+      ],
+      "w": 1152,
+      "h": 2048,
+      "orientation": "portrait",
+      "hash": "ce396c4a43215b8b",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "chimneys-and-leadwork"
+        ],
+        "stage": "after",
+        "shows": "Repointed chimney stack with new lead flashing and pots",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Repointed brick chimney stack with new lead flashing",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m06.webp",
+      "aw": 1152,
+      "ah": 2048
+    },
+    {
+      "id": "m07",
+      "kind": "video",
+      "file": "hero-video-01.mp4",
+      "copies": [
+        "_src/assets/hero.mp4"
+      ],
+      "w": 1440,
+      "h": 1440,
+      "dur": 5,
+      "orientation": "square",
+      "hash": "0b7ee692e7c7e2e2",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "owner by the van - about page and hero, not a service"
+    },
+    {
+      "id": "m08",
+      "kind": "video",
+      "file": "hero-video-03.mp4",
+      "copies": [
+        "_src/assets/hero3.mp4"
+      ],
+      "w": 1244,
+      "h": 1660,
+      "dur": 5,
+      "orientation": "portrait",
+      "hash": "a7c13dc239cef959",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "Drone pass over a bungalow with a new grey tiled roof",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Drone view of a bungalow re-roof in grey tiles",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "hero3.mp4",
+      "poster": "svc-m08-poster.webp"
+    },
+    {
+      "id": "m09",
+      "kind": "video",
+      "file": "b-a-01.mp4",
+      "copies": [
+        "_src/assets/t1.mp4"
+      ],
+      "w": 1244,
+      "h": 1660,
+      "dur": 5,
+      "orientation": "portrait",
+      "hash": "c4c4cecd8f8f656d",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "chimneys-and-leadwork"
+        ],
+        "stage": "before-after",
+        "shows": "Chimney before and after repointing",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Chimney stack before and after repointing",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "t1.mp4",
+      "poster": "t1-poster.webp"
+    },
+    {
+      "id": "m10",
+      "kind": "video",
+      "file": "hero-video-02.mp4",
+      "copies": [
+        "_src/assets/hero2.mp4"
+      ],
+      "w": 1244,
+      "h": 1660,
+      "dur": 5,
+      "orientation": "portrait",
+      "hash": "76318c9b7c381987",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "during",
+        "shows": "Drone pass over a scaffolded hipped roof in new brown tiles",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Drone view of a hipped roof re-tiled in brown tiles, scaffold still up",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "hero2.mp4",
+      "poster": "svc-m10-poster.webp"
+    },
+    {
+      "id": "m11",
+      "kind": "image",
+      "file": "3.jpeg",
+      "copies": [
+        "_src/assets/g2.webp"
+      ],
+      "w": 1200,
+      "h": 1600,
+      "orientation": "portrait",
+      "hash": "151fc60f8f076664",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "clay tile ridge with no visible work - cannot tell which job it shows"
+    },
+    {
+      "id": "m12",
+      "kind": "image",
+      "file": "reroof-1.jpeg",
+      "copies": [],
+      "w": 1200,
+      "h": 1600,
+      "orientation": "portrait",
+      "hash": "c383302d2cd2e2e4",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "New grey tiled hipped roof from the scaffold, blue sky",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "New grey tiled hipped roof seen from the scaffold",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m12.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m13",
+      "kind": "image",
+      "file": "2.jpeg",
+      "copies": [
+        "_src/assets/g1.webp"
+      ],
+      "w": 1200,
+      "h": 1600,
+      "orientation": "portrait",
+      "hash": "0f13373dbefc3813",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "New brown tiled hipped roof from the scaffold",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "Hipped roof re-tiled in brown concrete tiles",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m13.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m14",
+      "kind": "image",
+      "file": "1.jpeg",
+      "copies": [
+        "_src/assets/hero2.webp",
+        "_src/assets/g6.webp"
+      ],
+      "w": 1200,
+      "h": 1600,
+      "orientation": "portrait",
+      "hash": "0f0f264edc683933",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "New brown tiled hipped roof with two chimneys, scaffold boards in front",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "Re-tiled hipped roof with two brick chimneys",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m14.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m15",
+      "kind": "image",
+      "file": "team.png",
+      "copies": [
+        "_src/assets/team.webp"
+      ],
+      "w": 1536,
+      "h": 1024,
+      "orientation": "landscape",
+      "hash": "a9f85aa8e0e2c0e8",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "team photo - about page"
+    },
+    {
+      "id": "m16",
+      "kind": "image",
+      "file": "drone-02.png",
+      "copies": [],
+      "w": 1086,
+      "h": 1448,
+      "orientation": "portrait",
+      "hash": "a7c1bdc639ced159",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "after",
+        "shows": "Aerial view of a bungalow with a new grey roof",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Aerial view of a bungalow with a new grey tiled roof",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m16.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m17",
+      "kind": "image",
+      "file": "drone-01.png",
+      "copies": [],
+      "w": 1086,
+      "h": 1448,
+      "orientation": "portrait",
+      "hash": "f6311c9f7c381987",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "new-roofs-and-re-roofing"
+        ],
+        "stage": "during",
+        "shows": "Aerial view of a scaffolded hipped roof in new brown tiles",
+        "town": "",
+        "quality": 3
+      },
+      "alt": "Aerial view of a scaffolded hipped roof in new brown tiles",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "svc-m17.webp",
+      "aw": 1000,
+      "ah": 1334
+    },
+    {
+      "id": "m18",
+      "kind": "image",
+      "file": "_src/assets/areas.webp",
+      "copies": [],
+      "w": 1536,
+      "h": 864,
+      "orientation": "landscape",
+      "hash": "436f73439b1b934e",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "crop of m03"
+    },
+    {
+      "id": "m19",
+      "kind": "image",
+      "file": "about-owner.jpg",
+      "copies": [
+        "_src/assets/about1.webp",
+        "_src/assets/hero-poster.webp"
+      ],
+      "w": 1024,
+      "h": 1024,
+      "orientation": "square",
+      "hash": "0b7ee692e7c7e2e2",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "owner by the van - about page"
+    },
+    {
+      "id": "m20",
+      "kind": "image",
+      "file": "_src/assets/g9.webp",
+      "copies": [],
+      "w": 680,
+      "h": 906,
+      "orientation": "portrait",
+      "hash": "0a1244328f27c787",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [
+          "roof-repairs"
+        ],
+        "stage": "during",
+        "shows": "Dry ridge roll being fitted along a red tiled ridge, roof ladder hooked over",
+        "town": "",
+        "quality": 2
+      },
+      "alt": "Dry ridge being fitted to a red tiled roof",
+      "source": "vision",
+      "exclude": false,
+      "why": "",
+      "asset": "g9.webp"
+    },
+    {
+      "id": "m21",
+      "kind": "image",
+      "file": "_src/assets/about2.webp",
+      "copies": [],
+      "w": 480,
+      "h": 480,
+      "orientation": "square",
+      "hash": "dc9ab8daf87ef6fe",
+      "caption": "",
+      "role": "",
+      "tags": {
+        "services": [],
+        "stage": "",
+        "shows": "",
+        "town": "",
+        "quality": 0
+      },
+      "alt": "",
+      "source": "",
+      "exclude": true,
+      "why": "van doors with logo - about page"
+    }
+  ],
+  "pairs": [
+    {
+      "before": "m01",
+      "after": "m06",
+      "services": [
+        "chimneys-and-leadwork"
+      ],
+      "note": "b1/a1 - same chimney as b-a-01.mp4"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "built": "2026-10-14",
+  "services": {
+    "fascias-soffits-and-guttering": {
+      "name": "Fascias, soffits and guttering",
+      "cover": null,
+      "hero": null,
+      "heroSameAsCover": false,
+      "gallery": [],
+      "videos": [],
+      "pairs": [],
+      "candidates": 0,
+      "gap": "no photos or video of fascias, soffits and guttering - ask the client for 3-6, captioned with the job and town"
+    },
+    "moss-removal-and-roof-maintenance": {
+      "name": "Moss removal and roof maintenance",
+      "cover": null,
+      "hero": null,
+      "heroSameAsCover": false,
+      "gallery": [],
+      "videos": [],
+      "pairs": [],
+      "candidates": 0,
+      "gap": "no photos or video of moss removal and roof maintenance - ask the client for 3-6, captioned with the job and town"
+    },
+    "emergency-roof-repairs": {
+      "name": "Emergency roof repairs",
+      "cover": null,
+      "hero": null,
+      "heroSameAsCover": false,
+      "gallery": [],
+      "videos": [],
+      "pairs": [],
+      "candidates": 0,
+      "gap": "no photos or video of emergency roof repairs - ask the client for 3-6, captioned with the job and town"
+    },
+    "flat-roofing": {
+      "name": "Flat roofing",
+      "cover": "m02",
+      "hero": "m02",
+      "heroSameAsCover": true,
+      "gallery": [],
+      "videos": [],
+      "pairs": [],
+      "candidates": 1,
+      "gap": "only 1 photo(s) of flat roofing - ask for more"
+    },
+    "roof-repairs": {
+      "name": "Roof repairs",
+      "cover": "m20",
+      "hero": "m05",
+      "heroSameAsCover": false,
+      "gallery": [
+        "m20"
+      ],
+      "videos": [],
+      "pairs": [],
+      "candidates": 2,
+      "gap": "only 2 photo(s) of roof repairs - ask for more"
+    },
+    "chimneys-and-leadwork": {
+      "name": "Chimneys and leadwork",
+      "cover": "m06",
+      "hero": "m06",
+      "heroSameAsCover": true,
+      "gallery": [
+        "m01"
+      ],
+      "videos": [
+        "m09"
+      ],
+      "pairs": [
+        {
+          "before": "m01",
+          "after": "m06",
+          "services": [
+            "chimneys-and-leadwork"
+          ],
+          "note": "b1/a1 - same chimney as b-a-01.mp4"
+        }
+      ],
+      "candidates": 3,
+      "gap": "only 2 photo(s) of chimneys and leadwork - ask for more"
+    },
+    "new-roofs-and-re-roofing": {
+      "name": "New roofs and re-roofing",
+      "cover": "m12",
+      "hero": "m03",
+      "heroSameAsCover": false,
+      "gallery": [
+        "m12",
+        "m16",
+        "m17",
+        "m05",
+        "m13",
+        "m14"
+      ],
+      "videos": [
+        "m08",
+        "m10"
+      ],
+      "pairs": [],
+      "candidates": 10,
+      "gap": ""
+    }
+  },
+  "sharedGallery": [],
+  "unused": [
+    "m04"
+  ],
+  "untagged": []
+}

@@ -11,6 +11,9 @@
  * claim. NO guarantee length and NO insurance wording: both sit in confirm[]
  * with no certificate attached.
  *
+ * Blurbs (2026-10-14, /services): plain one-liners for the cards; the old
+ * aphorism ledes are no longer shown. Photos come from content/media-plan.json.
+ *
  * customerQuestions came back as "All differnt", so the FAQs are written from
  * the trade, not from Dave's phrasing. Worth replacing with his own words.
  */
@@ -20,6 +23,7 @@ module.exports = [
   {
     slug: 'roof-repairs',
     name: 'Roof repairs',
+    blurb: 'Slipped and cracked tiles, ridges, valleys and flashing, usually in one visit.',
     h1: 'Roof repairs in {{TOWN}}, Redditch and South Birmingham',
     title: 'Roof Repairs in {{TOWN}} | {{BUSINESS}}',
     desc: 'Leaks, slipped tiles, storm damage and failed flashing repaired across {{TOWN}}, Redditch and South Birmingham. 24 hour call out. Call {{PHONE}}.',
@@ -36,26 +40,26 @@ module.exports = [
     ],
     processTitle: 'How a repair actually goes',
     steps: [
-      ['We look at it properly', 'Someone comes out, gets onto the roof where it is safe to, and finds where the water is actually getting in. That is not always where the stain appears inside, which is why guessing from the ground wastes everybody’s money.'],
+      ['We get on the roof and look', 'Someone comes out, gets onto the roof where it is safe to, and finds where the water is actually getting in. That is not always where the stain appears inside, which is why guessing from the ground wastes everybody’s money.'],
       ['You get told the truth', 'If it is a repair, we say so. If the covering is at the end of its life and a repair will only buy a year, we say that too and let you decide. We photograph what we find so you can see it yourself.'],
       ['A written price before anything starts', 'Itemised, including access. Nothing begins until you have said yes to it.'],
-      ['The repair', 'Matching tiles or slates where we can, new lead dressed and fixed properly where the old work has failed, and ridges rebedded and pointed rather than smeared over.'],
+      ['The repair', 'Matching tiles or slates where we can, new lead dressed and fixed where the old work has failed, and ridges rebedded and pointed rather than smeared over.'],
       ['Checked, photographed and cleared up', 'We show you the finished work in photographs, take the waste with us, and sweep down before we leave.'],
     ],
     faqs: [
-      ['How quickly can you come out for a leak?', 'The phone is answered 24 hours a day and we do emergency call outs. How fast we can be on the roof depends on the weather and where you are, and we will give you a straight answer when you call rather than a promise we cannot keep.'],
-      ['Can you make it safe before a proper repair?', 'Usually yes. A temporary cover keeps the water out until the roof is dry enough to work on properly. We will always tell you which one you are getting so you are not surprised when we come back.'],
+      ['How quickly can you come out for a leak?', 'The phone is answered 24 hours a day and we do emergency call outs. How fast we can be on the roof depends on the weather and where you are, and we will tell you when you call.'],
+      ['Can you make it safe before a proper repair?', 'Usually yes. A temporary cover keeps the water out until the roof is dry enough to work on. We will always tell you which one you are getting so you are not surprised when we come back.'],
       ['Do you work in bad weather?', 'Some work can be made safe in the wet. A lasting repair needs a dry roof, particularly anything involving mortar or lead. We would rather come back than do it twice.'],
       ['Will I need scaffolding for a small repair?', 'Not always. A single slipped tile can often be done off a ladder or a tower. Anything above single storey, or anything taking more than a short visit, normally needs scaffolding for safety and for a better finish. It is priced in from the start.'],
       ['Can you match my existing tiles?', 'Usually. The concrete interlocking profiles on the south Birmingham estates and the clay tiles on the older Bromsgrove and Redditch houses are ones we handle every week, and reclaimed tiles cover the awkward ones.'],
       ['What does a repair cost?', 'It depends entirely on what has failed and how the roof is reached, so we will not quote a figure over the phone and pretend it is accurate. You get a written price after we have looked, before any work starts.'],
     ],
-    gallery: ['g4', 'g5', 'g2'],
   },
 
   {
     slug: 'new-roofs-and-re-roofing',
     name: 'New roofs and re-roofing',
+    blurb: 'Stripped to the timbers, new breathable membrane and battens, new tiles or slates.',
     h1: 'New roofs and re-roofing in {{TOWN}} and South Birmingham',
     title: 'Roof Replacement and Re-Roofing in {{TOWN}} | {{BUSINESS}}',
     desc: 'Full strip and re-cover with breathable membrane, treated battens and new tiles or slates, across {{TOWN}}, Redditch and South Birmingham. Call {{PHONE}}.',
@@ -74,7 +78,7 @@ module.exports = [
     steps: [
       ['Survey and an honest recommendation', 'We get up and look at the deck, the battens and the felt, not just the tiles. Plenty of roofs sent to us for replacement only needed a repair, and we will say so.'],
       ['A written specification', 'Which tile or slate, which membrane, which battens, what happens at the ridge, the hips, the valleys and the abutments, and what the access costs. All of it in writing before anything is ordered.'],
-      ['Scaffold and strip', 'The roof is sheeted, the old covering comes off, and the timbers are inspected properly once they are exposed. Anything rotten gets replaced, and you see a photograph of it before it is covered again.'],
+      ['Scaffold and strip', 'The roof is sheeted, the old covering comes off, and the timbers are inspected once they are exposed. Anything rotten gets replaced, and you see a photograph of it before it is covered again.'],
       ['Membrane, battens and covering', 'Breathable membrane lapped the right way, treated battens set to the gauge the tile needs, then the new covering laid, fixed and cut in cleanly at every edge.'],
       ['Ridge, verges, leadwork and hand over', 'Ridges and hips bedded or dry fixed, verges finished, lead renewed where it meets chimneys and walls, and the whole job photographed and walked through with you before the scaffold comes down.'],
     ],
@@ -85,16 +89,16 @@ module.exports = [
       ['Will my ceilings be affected?', 'No. The covering is stripped from above and the ceilings are untouched. If the felt has been letting water in for years there may already be staining inside, which the new roof stops getting worse.'],
       ['Is it a good time to add roof insulation or a roof window?', 'Yes. With the covering off, both are far cheaper than as a separate job later. Say so at the survey and we will price it in.'],
     ],
-    gallery: ['g3', 'g7', 'g1'],
   },
 
   {
     slug: 'flat-roofing',
     name: 'Flat roofing',
+    blurb: 'EPDM rubber, fibreglass and felt on extensions, garages, porches and dormers.',
     h1: 'Flat roofing in {{TOWN}}, Redditch and South Birmingham',
     title: 'Flat Roofing in {{TOWN}} | {{BUSINESS}}',
     desc: 'EPDM rubber, fibreglass and felt flat roofs for extensions, garages, porches and dormers across {{TOWN}}, Redditch and South Birmingham. Call {{PHONE}}.',
-    lede: 'Flat roofs get a bad name from the way they used to be done. Done properly, a modern one outlasts the extension under it.',
+    lede: 'Flat roofs get a bad name from the way they used to be done. A modern one, laid well, outlasts the extension under it.',
     inShort: 'We replace and repair flat roofs on extensions, garages, porches, bays and dormers across {{TOWN}}, Redditch and the south side of Birmingham. EPDM rubber for most jobs, fibreglass where a hard wearing finish or an awkward shape calls for it, and felt where it is the right match. The board underneath is checked and replaced where it has gone soft, and the falls are set so water actually leaves the roof.',
     signsTitle: 'Signs a flat roof is on its way out',
     signs: [
@@ -120,12 +124,12 @@ module.exports = [
       ['Can you add a roof lantern or skylight?', 'Yes, and a re-cover is the ideal time, because the kerb and the flashing are built into the new roof rather than cut into an old one.'],
       ['My flat roof joins a pitched roof. Can you do both?', 'Yes. Where the two meet is where most leaks happen, and having one firm responsible for both sides of the joint is the way to stop it.'],
     ],
-    gallery: ['g3', 'g6', 'g7'],
   },
 
   {
     slug: 'chimneys-and-leadwork',
     name: 'Chimneys and leadwork',
+    blurb: 'Repointing, rebuilds and caps, with new lead flashing, soakers and back gutters.',
     h1: 'Chimney repairs and leadwork in {{TOWN}} and South Birmingham',
     title: 'Chimney Repairs and Leadwork in {{TOWN}} | {{BUSINESS}}',
     desc: 'Chimney repointing, rebuilds, cowls and new lead flashing across {{TOWN}}, Redditch and South Birmingham. Call {{PHONE}} for a free look.',
@@ -144,23 +148,23 @@ module.exports = [
     steps: [
       ['Inspect the stack and the lead', 'From the roof, not the ground. We look at the pointing, the brick faces, the flaunching around the pots and the lead at the base, and photograph all of it for you.'],
       ['Repoint or rebuild', 'Open joints are raked out and refilled with a mortar that suits the brick. Where the top courses have gone, the stack is taken down to sound brick and rebuilt.'],
-      ['Renew the lead', 'Step flashing, aprons, soakers and back gutters in new code lead, dressed and fixed properly, with the chases cut and pointed so it cannot pull out.'],
+      ['Renew the lead', 'Step flashing, aprons, soakers and back gutters in new code lead, dressed and fixed, with the chases cut and pointed so it cannot pull out.'],
       ['Cap, cowl and flaunch', 'Unused flues are capped so rain stays out and air still moves. Pots are re-flaunched, and cowls fitted where a working flue needs one.'],
       ['Photograph and clear', 'You see the finished stack in photographs, because you are not going to climb up and look yourself.'],
     ],
     faqs: [
       ['Is it the roof or the chimney that is leaking?', 'On the older houses across Bromsgrove and south Birmingham it is very often the chimney, either the pointing or the lead at the base. It shows as damp on the chimney breast rather than a ceiling. We find out where the water is actually getting in before anything is quoted.'],
       ['Can you just take the chimney down?', 'Yes, if it is unused. Taking a stack down to below the roof line and tiling over is a common job and removes the problem for good. Party wall stacks need the neighbour involved.'],
-      ['Does a chimney repair need scaffolding?', 'Nearly always, for safety and to do the job properly. It is included in the written price.'],
-      ['Do you replace the lead or seal it?', 'Replace it. Mastic and cement over old lead is a temporary patch at best and it hides the fault. New lead dressed properly is the fix.'],
+      ['Does a chimney repair need scaffolding?', 'Nearly always, for safety and for a better finish. It is included in the written price.'],
+      ['Do you replace the lead or seal it?', 'Replace it. Mastic and cement over old lead is a temporary patch at best and it hides the fault. New lead, dressed into the brickwork, is the fix.'],
       ['What is the lead flashing on the photographs?', 'The grey metal where the chimney meets the tiles. It is what keeps water out of that joint, and it is the first thing to check on a damp chimney breast.'],
     ],
-    gallery: ['g4', 'g8', 'g6'],
   },
 
   {
     slug: 'fascias-soffits-and-guttering',
     name: 'Fascias, soffits and guttering',
+    blurb: 'Timber fascias and soffits replaced with uPVC, new gutters and downpipes.',
     h1: 'Fascias, soffits and guttering in {{TOWN}} and South Birmingham',
     title: 'Fascias, Soffits and Guttering in {{TOWN}} | {{BUSINESS}}',
     desc: 'UPVC fascia and soffit replacement, new guttering and gutter repairs across {{TOWN}}, Redditch and South Birmingham. Call {{PHONE}}.',
@@ -190,12 +194,12 @@ module.exports = [
       ['How long does it take?', 'A typical semi is usually a day for the roofline and the guttering together, weather allowing.'],
       ['Does it need scaffolding?', 'On a two storey house, normally yes. Bungalows can often be done from a tower, which makes the job cheaper.'],
     ],
-    gallery: ['g3', 'g1', 'g7'],
   },
 
   {
     slug: 'moss-removal-and-roof-maintenance',
     name: 'Moss removal and roof maintenance',
+    blurb: 'Moss cleared by hand, gutters checked, small faults put right while we are up there.',
     h1: 'Moss removal and roof maintenance in {{TOWN}} and South Birmingham',
     title: 'Moss Removal and Roof Maintenance | {{BUSINESS}}',
     desc: 'Roof moss removal, gutter clearing and the small repairs that stop a big bill, across {{TOWN}}, Redditch and South Birmingham. Call {{PHONE}}.',
@@ -225,12 +229,12 @@ module.exports = [
       ['Can you clear my gutters at the same time?', 'Yes, and we usually do, because the moss ends up in the gutters.'],
       ['Is moss a sign the roof needs replacing?', 'Not on its own. Moss grows on perfectly sound roofs. It is what it hides, and what it does to the gutters, that causes the trouble.'],
     ],
-    gallery: ['g2', 'g6', 'g5'],
   },
 
   {
     slug: 'emergency-roof-repairs',
     name: 'Emergency roof repairs',
+    blurb: '24 hour call outs for storm damage, sudden leaks and failed flashing.',
     h1: '24 hour emergency roof repairs in {{TOWN}} and South Birmingham',
     title: '24 Hour Emergency Roof Repairs | {{BUSINESS}}',
     desc: 'Storm damage, leaks and tiles down. 24 hour emergency roof repairs across {{TOWN}}, Redditch and South Birmingham. Ring {{PHONE}} any time.',
@@ -260,6 +264,5 @@ module.exports = [
       ['What can I do while I wait?', 'Move anything valuable from under the leak, put a bucket down, and if a ceiling is bulging, pierce it with a screwdriver to let the water out in one place rather than have the ceiling come down. Do not go on the roof.'],
       ['Will the temporary repair hold?', 'Long enough for the roof to dry and the proper repair to be done. We will say how long we expect it to last and when we will be back.'],
     ],
-    gallery: ['g4', 'g2', 'g1'],
   },
 ];

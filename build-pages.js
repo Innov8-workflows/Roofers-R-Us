@@ -11,6 +11,20 @@ const { shell, crumbTrail, ctaBand, waHref, faqBlock, svg, esc, tok, asset, B, O
         cfg, SERVICES, AREAS, SITE, OUT, ROOT, ASSETS, buildCss,
         bizNode, webPage, faqSchema, BIZ_ID, STAGING, FB_PATH } = G;
 
+/* Service media (/services skill, 2026-10-14). Photos and videos were tagged by
+   looking at each one and matched to the service they show; media-plan.json
+   gives each service its cover (hub card), hero (its page), gallery and video.
+   A service with no photo shows an icon tile, never another service's photo. */
+const SEC = require('C:/Users/Jay/.claude/site-kit/engine/seo-sections.js');
+const MEDIA = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'media.json'), 'utf8'));
+const PLAN = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'media-plan.json'), 'utf8'));
+const mget = SEC.mediaIndex(MEDIA);
+const msrc = it => asset(it.asset);
+const MO = { esc, src: msrc, poster: it => asset(it.poster) };
+const SVC_ICON = { 'fascias-soffits-and-guttering': 'droplets', 'moss-removal-and-roof-maintenance': 'leaf', 'emergency-roof-repairs': 'siren' };
+const photoCard = x => SEC.serviceCard({ ...x, blurb: tok(x.blurb) }, PLAN, mget,
+  { ...MO, href: y => B + 'services/' + y.slug + '/', icon: y => SVC_ICON[y.slug] ? svg(SVC_ICON[y.slug]) : '' });
+
 const urls = [];
 const write = (rel, html, addToSitemap = true) => {
   const p = path.join(OUT, rel);
@@ -156,7 +170,7 @@ urls.push(ORIGIN + B);
 
 /* ------------------------------------------------------------- fragments -- */
 const svcCard = s => `<a class="linkcard" href="${B}services/${s.slug}/">
-  <span>${esc(s.name)}<small>${esc(tok(s.lede))}</small></span>${svg('arrow')}</a>`;
+  <span>${esc(s.name)}<small>${esc(tok(s.blurb))}</small></span>${svg('arrow')}</a>`;
 
 const areaCard = a => `<a class="linkcard" href="${B}${a.slug}/">
   <span>${esc(a.name)}<small>${esc(a.band)}</small></span>${svg('arrow')}</a>`;
@@ -164,10 +178,10 @@ const areaCard = a => `<a class="linkcard" href="${B}${a.slug}/">
 /* Facts only: hours from the form, the tagline from the logo, the Google
    rating read off the listing. No insurance, no guarantee - neither is
    evidenced. */
-const sideCard = (where) => `<div class="side">
+const sideCard = (where) => `<div class="side" data-boiler>
   <div class="side-card">
     <h2>Get a free quote</h2>
-    <p>Someone comes out, looks at the roof properly and gives you a written price. No charge, no obligation.</p>
+    <p>Someone comes out, gets on the roof and gives you a written price. No charge, no obligation.</p>
     <a class="btn btn-primary" href="tel:${T.PHONE_TEL}" data-track="call">${svg('phone')}Call ${T.PHONE}</a>
     <a class="btn btn-ghost" href="${waHref(where)}" target="_blank" rel="noopener">WhatsApp us</a>
     <div class="factrow">${svg('clock')}<span>${esc(SITE.contact.hours)}</span></div>
@@ -196,14 +210,12 @@ const REGION = `${T.TOWN}, Redditch and ${T.AREA2}`;
     schema: [bizNode(), ...webPage('services', title, desc, crumbs), faqSchema(faqs)],
     body: `<section class="page-head"><div class="wrap">${crumbTrail(crumbs)}
   <h1>Roofing services in ${esc(T.TOWN)} and ${esc(T.AREA2)}</h1>
-  <p class="lede">Seven things we do, all of them properly. Everything below is covered across ${esc(REGION)}.</p>
+  <p class="lede">Seven services across ${esc(REGION)}, from a single slipped tile to a full re-roof. A family firm, three generations in, with a team of ten. Quotes are free and in writing.</p>
 </div></section>
 <section class="sec s-light"><div class="wrap"><div class="two-col">
   <div class="prose">
-    <h2>In short</h2>
-    <div class="inshort"><p>${esc(T.BUSINESS)} covers roof repairs, full re-roofs, flat roofing, chimney work and leadwork, fascias, soffits and guttering, moss removal and roof maintenance, and 24 hour emergency call outs. We are a family firm, three generations in, with a team of ten working across ${esc(REGION)}. Quotes are free and in writing.</p></div>
     <h2>What we do</h2>
-    <div class="linkgrid">${SERVICES.map(svcCard).join('')}</div>
+    <div class="svc-cards">${SERVICES.map(photoCard).join('')}</div>
     <h2>Not sure which one you need?</h2>
     <p>Most people ring about a leak and are not certain whether it is a repair or the roof reaching the end of its life. That is a perfectly normal place to start. Someone comes out, gets on the roof, finds where the water is actually getting in, and tells you honestly which of the two you are looking at. If it is a repair, we say so.</p>
     <h2>Frequently asked questions</h2>
@@ -220,6 +232,21 @@ for (const s of SERVICES) {
   const crumbs = [['Home', B], ['Services', B + 'services/'], [s.name, null]];
   const others = SERVICES.filter(x => x.slug !== s.slug);
   const faqs = s.faqs;
+  /* The old aphorism lede is gone: the page opens with the first sentence of
+     what the service is, and the rest follows as the opening paragraph. */
+  const sentences = tok(s.inShort).split(/(?<=\.)\s+/);
+  const lede = sentences[0];
+  const rest = sentences.slice(1).join(' ');
+  const heroHtml = SEC.serviceHero(s, PLAN, mget, MO);
+  const pair = (MEDIA.pairs || []).find(p => (p.services || []).includes(s.slug));
+  const pairIds = pair ? [pair.before, pair.after] : [];
+  const pairHtml = pair ? `<div class="svc-pair">${pairIds.map((id, k) => {
+    const it = mget(id);
+    return `<figure data-media-id="${id}" data-media-role="pair"><img src="${msrc(it)}" alt="${esc(it.alt)}" loading="lazy" width="${it.aw || it.w}" height="${it.ah || it.h}"><figcaption>${k ? 'After' : 'Before'}: ${esc(it.tags.shows)}</figcaption></figure>`;
+  }).join('')}</div>` : '';
+  const galPlan = { services: { [s.slug]: { ...PLAN.services[s.slug], gallery: (PLAN.services[s.slug] || { gallery: [] }).gallery.filter(id => !pairIds.includes(id)) } } };
+  const galleryHtml = SEC.serviceGallery(s, galPlan, mget, MO);
+  const videoHtml = SEC.serviceVideos(s, PLAN, mget, { ...MO, cls: 'svc-video', videoAttrs: 'controls' });
   const svcSchema = {
     '@context': 'https://schema.org', '@type': 'Service',
     name: tok(s.name), serviceType: tok(s.name),
@@ -236,14 +263,16 @@ for (const s of SERVICES) {
   write(`services/${s.slug}/index.html`, shell({
     slug: `services/${s.slug}`, title: s.title, desc: s.desc,
     schema: [bizNode(), ...webPage(`services/${s.slug}`, s.title, s.desc, crumbs), svcSchema, faqSchema(faqs)],
-    body: `<section class="page-head"><div class="wrap">${crumbTrail(crumbs)}
+    body: `<section class="page-head${heroHtml ? ' has-hero' : ''}"><div class="wrap"><div>${crumbTrail(crumbs)}
   <h1>${esc(tok(s.h1))}</h1>
-  <p class="lede">${esc(tok(s.lede))}</p>
-</div></section>
+  <p class="lede">${esc(lede)}</p>
+  <div class="ph-ctas"><a class="btn btn-primary" href="tel:${T.PHONE_TEL}" data-track="call">${svg('phone')}Call ${T.PHONE}</a><a class="btn btn-ghost" href="${waHref('for ' + s.name.toLowerCase())}" target="_blank" rel="noopener">WhatsApp us</a></div>
+</div>${heroHtml}</div></section>
 <section class="sec s-light"><div class="wrap"><div class="two-col">
   <div class="prose">
-    <h2>In short</h2>
-    <div class="inshort"><p>${esc(tok(s.inShort))}</p></div>
+    ${rest ? `<p>${esc(rest)}</p>` : ''}
+    ${pairHtml ? `<h2>Before and after</h2>${pairHtml}` : ''}
+    ${videoHtml ? `<h2>${esc(s.name)} on video</h2><div class="svc-videos">${videoHtml}</div>` : ''}
 
     <h2>${esc(s.signsTitle)}</h2>
     <ul>${s.signs.map(x => `<li>${esc(tok(x))}</li>`).join('')}</ul>
@@ -252,20 +281,18 @@ for (const s of SERVICES) {
     <div class="steps">${s.steps.map(([h, p]) =>
       `<div class="step"><h3>${esc(tok(h))}</h3><p>${esc(tok(p))}</p></div>`).join('')}</div>
 
-    ${galleryFigs(s.gallery)}
+    ${galleryHtml ? `<h2>More ${esc(s.name.toLowerCase())}</h2>${galleryHtml}` : ''}
 
     ${ctaBand('Want someone to take a look?', 'Free written quote, and we answer the phone 24 hours a day.', 'for ' + s.name.toLowerCase())}
 
-    <h2>${esc(s.name)} near you</h2>
-    <p>We cover ${esc(REGION)}. Pick your area for what the work tends to look like there.</p>
-    <div class="areas-cols">${AREAS.map(a =>
-      `<a href="${B}${a.slug}/">${esc(s.name)} in ${esc(a.name)}</a>`).join('')}</div>
+    <h2>Where we do it</h2>
+    <p>Across ${esc(REGION)}. See <a href="${B}areas-we-cover/">the areas we cover</a> for the towns and villages.</p>
 
     <h2>Frequently asked questions</h2>
     ${faqBlock(faqs)}
 
     <h2>Other services</h2>
-    <div class="linkgrid">${others.map(svcCard).join('')}</div>
+    <div class="svc-cards" data-boiler>${others.map(photoCard).join('')}</div>
   </div>
   ${sideCard('for ' + s.name.toLowerCase())}
 </div></div></section>`,

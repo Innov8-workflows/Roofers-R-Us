@@ -153,10 +153,43 @@ const EXTRA_CSS = `
 .rv-card small{color:var(--on-paper-muted)}
 .rv-card p{color:var(--on-paper-2);margin-top:10px}
 .rv-stars{color:var(--gold);letter-spacing:2px;font-size:15px;margin-top:6px}
+
+/* ---------- service media (/services skill, 2026-10-14) ----------
+   Every service shows its own photos: a cover on its hub card, a bigger hero
+   on its page, then a gallery and video of the same job. Images carry
+   width/height, so height:auto is required or a 3:4 phone photo renders at
+   its full 2048px. */
+.svc-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px;margin-top:16px}
+.svc-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--card-line);border-radius:var(--r-lg);overflow:hidden;color:var(--fg);transition:border-color .2s}
+.svc-card:hover{border-color:var(--accent)}
+.svc-card-media{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--card-hi);display:flex;align-items:center;justify-content:center}
+.svc-card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.svc-card-blank{color:var(--brand,#556378);opacity:.75}
+.svc-card-blank .icon{width:38px;height:38px}
+.svc-card-body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:4px}
+.svc-card-body strong{font-size:16.5px;line-height:1.25;color:var(--fg)}
+.svc-card-body span{font-size:14px;color:var(--fg-muted);line-height:1.45}
+.prose .svc-card{text-decoration:none}
+.page-head.has-hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,48px);align-items:center}
+@media(max-width:900px){.page-head.has-hero .wrap{grid-template-columns:1fr}.page-head.has-hero .svc-hero{order:-1;max-width:520px}}
+.svc-hero{margin:0}
+.svc-hero img{width:100%;height:auto;max-height:540px;object-fit:cover;border-radius:var(--r-lg);display:block;aspect-ratio:4/5}
+.ph-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.svc-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px;margin-top:16px}
+.svc-gallery figure,.svc-video,.svc-pair figure{margin:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--card-line);background:var(--card)}
+.svc-gallery img,.svc-pair img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block}
+.svc-gallery figcaption,.svc-video figcaption,.svc-pair figcaption{padding:9px 12px;font-size:13px;color:var(--fg-muted)}
+.svc-videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px}
+.svc-video video{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;background:#000}
+.svc-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;max-width:560px}
 `;
 
 /* --------------------------------------------------------------- chrome -- */
 const ICON = {
+  /* lucide-static@0.460.0: droplets, leaf, siren - service cards with no photo yet */
+  droplets: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+  leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  siren: '<path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/>',
   phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
   arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
   menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
@@ -347,7 +380,7 @@ function crumbTrail(items) {
 }
 
 function ctaBand(headline, sub, where) {
-  return `<div class="cta-band">
+  return `<div class="cta-band" data-boiler>
   <h2>${esc(tok(headline))}</h2>
   <p style="color:var(--fg-muted)">${esc(tok(sub))}</p>
   <div class="hero-btns">
