@@ -81,16 +81,21 @@ const reviews = {
  *   googleRead   the listing, where a visitor READS reviews. Derived from the
  *                place CID 0x88ec9e1117f581b3 = 9866434679915512243. Verified
  *                2026-09-07.
- *   googleWrite  the write-a-review dialog. Built from the same place pair in
- *                the `!12e1` form that Midland's official Ask-for-reviews link
- *                resolved to. It opens the dialog, but it is NOT the official
- *                short link - swap in the g.page/r/.../review link from Dave's
- *                Business Profile dashboard when he has it. */
+ *   googleWrite  Google's documented write-a-review URL for the Place ID.
+ *                ChIJMzDh0wKOwA4Rs4H1FxGe7Ig is derived from the same place pair
+ *                0xec08e02d3e13033:0x88ec9e1117f581b3, and was checked 2026-10-15
+ *                to open "Roofers R Us Limited" on Maps. Signed out it goes to
+ *                Google sign-in and then straight to the review box. The old
+ *                !12e1 maps link landed signed-out visitors on the listing
+ *                instead. If Dave's Business Profile is ever managed, the
+ *                g.page/r/.../review link from "Ask for reviews" can replace it.
+ *   secondary    Facebook's REVIEWS tab (&sk=reviews). The bare profile URL
+ *                lands on the timeline, where nobody can leave a review. */
 const reviewLinks = {
   googleRead: 'https://maps.google.com/?cid=9866434679915512243',
-  googleWrite: 'https://www.google.com/maps/place//data=!4m3!3m2!1s0xec08e02d3e13033:0x88ec9e1117f581b3!12e1',
+  googleWrite: 'https://search.google.com/local/writereview?placeid=ChIJMzDh0wKOwA4Rs4H1FxGe7Ig',
   facebook: 'https://www.facebook.com/profile.php?id=61593965793871',
-  secondary: [{ name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61593965793871' }],
+  secondary: [{ name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61593965793871&sk=reviews' }],
 };
 
 const review = {

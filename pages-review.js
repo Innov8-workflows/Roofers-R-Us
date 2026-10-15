@@ -21,11 +21,9 @@
  *   addToSitemap false. Listing a noindex page asks Google to crawl the page
  *   that tells it not to.
  *
- *   The header carries the same three-clip hero sequence as the main site, but
- *   from hero-card.mp4 - a 760px, 424 KB encode rather than the 1.4 MB one. The
- *   band is about 200px tall inside a 520px card, so the full hero file would be
- *   several times more data than the band can ever show, on a page opened once
- *   on mobile data.
+ *   The header loops the first homepage clip (hero.mp4, 380 KB) behind a scrim.
+ *   One clip, not the homepage's three: the band is about 200px tall, on a page
+ *   opened once on mobile data.
  *   There is deliberately NO prefers-reduced-motion branch. The house stance is
  *   to still the motion, never to remove the content - hiding the clip and
  *   falling back to a poster is how a working hero gets reported broken twice.
@@ -35,7 +33,7 @@
  *
  *   The reassurance line carries only claims declared in site.config.js claims{}.
  *
- * WHEN THERE IS NO GOOGLE LINK the primary button routes to WhatsApp instead
+ * IF reviewLinks.googleWrite IS EVER EMPTIED the primary button routes to WhatsApp instead
  * and the Google-specific steps are omitted, so the page still works and still
  * collects feedback. It switches to the Google version automatically the moment
  * reviewLinks.googleWrite is filled in. A dead button would be worse than the 404
@@ -44,7 +42,7 @@
 'use strict';
 
 module.exports = function writeReviewPage({ write, G }) {
-  const { esc, tok, asset, svg, B, ORIGIN, T, cfg, SITE, WA_PATH } = G;
+  const { esc, tok, asset, svg, B, ORIGIN, T, cfg, SITE, WA_PATH, FB_PATH } = G;
   const L = SITE.reviewLinks;
 
   const R = SITE.review;
@@ -63,12 +61,14 @@ module.exports = function writeReviewPage({ write, G }) {
 
   /* WhatsApp's own mark, fill="currentColor" so `color` drives it, not `fill` */
   const WA = '<svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">' + WA_PATH + '</svg>';
+  /* Facebook's official mark, from the generator, in Facebook blue via `color` */
+  const FB = '<svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" style="color:#1877F2" aria-hidden="true">' + FB_PATH + '</svg>';
   /* white, for use on the green primary button */
   const WA_WHITE = '<svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true">' + WA_PATH + '</svg>';
 
   /* ---------------------------------------------------------- the primary ask
-   * Dave has no Google Business Profile yet, so there is nowhere for a customer
-   * to leave a Google review. Three options, and only one of them is any good:
+   * Fallback for when there is no Google link. Three options, and only one of
+   * them is any good:
    *   404          - what the page did before. Useless to him.
    *   dead button  - worse than the 404. A customer taps, nothing happens, and
    *                  they do not come back. That costs the review outright.
@@ -115,7 +115,7 @@ module.exports = function writeReviewPage({ write, G }) {
     '.put h2{font:800 16px/1 "Plus Jakarta Sans",Inter,sans-serif;color:#13213B;margin-bottom:8px}',
     '.put p{color:#5C6B86;font-size:14px;margin-bottom:15px}',
     '.put-btns{display:flex;gap:10px}',
-    '.pbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #C2CBDA;border-radius:11px;padding:13px 10px;text-decoration:none;color:#13213B;font:600 14.5px/1 Inter,sans-serif}',
+    '.pbtn{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #C2CBDA;border-radius:11px;padding:13px 10px;text-decoration:none;color:#13213B;font:600 14.5px/1 Inter,sans-serif}',
     '.pbtn .icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}',
     '.ft{margin-top:26px;padding:18px 24px 24px;border-top:1px solid #E9EDF5;text-align:center;color:#8A97AD;font-size:12px}',
     '.ft a{color:#5C6B86}',
@@ -125,7 +125,7 @@ module.exports = function writeReviewPage({ write, G }) {
 
   const secondary = (L.secondary || []).length
     ? '\n  <div class="put" style="border-top:none;padding-top:6px">\n    <h2>No Google account?</h2>\n    <p>These work just as well.</p>\n    <div class="put-btns">' +
-      L.secondary.map(s => '<a class="pbtn" href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + '</a>').join('') +
+      L.secondary.map(s => '<a class="pbtn" href="' + esc(s.url) + '" target="_blank" rel="noopener">' + (/facebook/i.test(s.name) ? FB : '') + esc(s.name) + '</a>').join('') +
       '</div>\n  </div>'
     : '';
 
@@ -155,8 +155,7 @@ module.exports = function writeReviewPage({ write, G }) {
     '<style>\n' + CSS + '\n</style>\n</head>\n<body>\n' +
     '<main class="card">\n' +
     '  <div class="hd">\n' +
-    /* The same three-clip sequence as the main site, from the small encode.
-       autoplay + muted + playsinline and no controls. Deliberately NO
+    /* The first homepage clip, looped. autoplay + muted + playsinline and no controls. Deliberately NO
        prefers-reduced-motion branch: the house stance is to still the motion,
        never to remove the content. */
     '    <video class="hd-bg" autoplay muted loop playsinline preload="auto" poster="' + asset('hero-poster.webp') + '" aria-hidden="true">' +
