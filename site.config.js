@@ -22,7 +22,7 @@ module.exports = {
   /* Apps Script web app 'Roofers R US LTD Lead Script' (wicked.jay540@gmail.com), deployed 2026-10-16.
      Redeploy ONLY via Manage deployments -> pencil -> New version, or this URL changes. */
   leadLog: { exec: 'https://script.google.com/macros/s/AKfycbwH1Myxaqx0iP9iE7JpT_6CBzt6oAXYY864KMjwqiWsS0uzqwX490tP16FCNkEnPT0ZXA/exec' },
-  searchConsole: { verification: '' },
+  searchConsole: { verification: 'bSJ4ng82dNzX1neBtje3g-W4dGG2VbChdzXXyaUwvsE' },   /* GSC HTML-tag method, supplied by Jay 2026-10-16 */
 
   /* Contractor Bold: the roofing direction. Near-black ground, hard-edged cards,
      dense rhythm. It is also the register the client's own logo lives in: a
