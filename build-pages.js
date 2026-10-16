@@ -134,6 +134,12 @@ if (cfg.searchConsole && cfg.searchConsole.verification) {
     homeSchema.map(s => '<script type="application/ld+json">' + JSON.stringify(s) + '</script>').join('\n') + '\n</head>');
 }
 
+/* The lead beacon. The kit-built homepage carries the quote form, the hero call
+   button and the WhatsApp widget but no lead.js, so without this every homepage
+   enquiry went unlogged. External file, so the CSP needs nothing new. */
+home = home.replace('</body>', '<script src="' + asset('lead.js') + '" defer></script>\n</body>');
+if (home.split('/lead.js').length - 1 !== 1) throw new Error('homepage must load lead.js exactly once');
+
 /* base64 -> real files. Same bytes, addressed differently. Nothing re-encoded. */
 const MIME = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.mp4': 'video/mp4' };
 {

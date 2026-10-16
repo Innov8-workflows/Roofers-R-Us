@@ -491,6 +491,9 @@ a.chip:hover{border-color:var(--brand-lt);color:#fff}
           </label>
         </div>
         <label class="field"><span>Tell us about the job</span><textarea name="detail" placeholder="What is wrong, roughly how old the roof is, and whether it is urgent."></textarea></label>
+        <!-- Honeypot. Hidden from people and screen readers; a bot that fills it is
+             dropped by lead.js and again by Code.gs before anything is recorded. -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
         <button class="btn btn-primary btn-block" type="submit">
           <svg class="icon" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
           Send via WhatsApp

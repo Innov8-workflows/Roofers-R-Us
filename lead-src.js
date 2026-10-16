@@ -96,6 +96,10 @@
       try { var el = f.elements[k]; return el ? String(el.value || '').trim() : ''; }
       catch (err) { return ''; }
     }
+    /* The site's own handler refuses a submit without a name and phone, so
+       match it - otherwise every half-filled tap of the button logs a blank lead. */
+    if (!v('name') || !v('phone')) return;
+    if (v('botcheck')) return;          // honeypot filled: a bot, not a customer
     sendLead({
       type: 'Quote form',
       name: v('name'),
