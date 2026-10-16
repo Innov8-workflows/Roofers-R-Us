@@ -137,6 +137,8 @@ if (cfg.searchConsole && cfg.searchConsole.verification) {
 /* The lead beacon. The kit-built homepage carries the quote form, the hero call
    button and the WhatsApp widget but no lead.js, so without this every homepage
    enquiry went unlogged. External file, so the CSP needs nothing new. */
+home = home.replace('</body>', '<script src="' + asset('analytics.js') + '" defer></script>\n</body>');
+if (home.split('/analytics.js').length - 1 !== 1) throw new Error('homepage must load analytics.js exactly once');
 home = home.replace('</body>', '<script src="' + asset('lead.js') + '" defer></script>\n</body>');
 if (home.split('/lead.js').length - 1 !== 1) throw new Error('homepage must load lead.js exactly once');
 
@@ -571,7 +573,7 @@ const legalShell = (slug, h1, title, desc, inner) => {
 legalShell('privacy-policy', 'Privacy policy',
   'Privacy Policy | {{BUSINESS}}',
   'How {{BUSINESS}} collects, uses and stores the personal information you give us.',
-  `<p>This policy explains what ${esc(T.BUSINESS)} does with the personal information you give us. It was last updated in September 2026.</p>
+  `<p>This policy explains what ${esc(T.BUSINESS)} does with the personal information you give us. It was last updated in October 2026.</p>
    <h2>Who we are</h2>
    <p>${esc(SITE.contact.company.name)}, company number ${esc(SITE.contact.company.number)}. You can reach us on <a href="tel:${T.PHONE_TEL}">${T.PHONE}</a> or at <a href="mailto:${T.EMAIL}">${T.EMAIL}</a>.</p>
    <h2>What we collect</h2>
@@ -580,12 +582,13 @@ legalShell('privacy-policy', 'Privacy policy',
    <p>To quote for your work, to carry it out, and to contact you about it afterwards. If you become a customer we keep a record of the work so we can come back to it if you need us to.</p>
    <h2>Who we share it with</h2>
    <p>Nobody, other than where we genuinely have to in order to do the job, such as a scaffolding contractor who needs the address. We do not sell your details and we do not pass them to marketing companies.</p>
+   <p>When you send the quote form, or tap to call or message us, a record of it is saved to a Google Sheet that we use as our enquiry log, and is passed to Innov8 Workflows, who run this website and our enquiry system for us. They hold it only to provide that service to us.</p>
    <h2>How long we keep it</h2>
    <p>Enquiries that do not turn into work are deleted once they are clearly not going anywhere. Customer records are kept for as long as we might reasonably need to refer back to the work.</p>
    <h2>Your rights</h2>
    <p>You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Contact us on the details above and we will deal with it. If you are not happy with how we have handled it you can complain to the Information Commissioner’s Office at ico.org.uk.</p>
    <h2>This website</h2>
-   <p>The site sets no advertising or tracking cookies unless you accept them on the banner. Declining does not affect your quote or how we handle your enquiry.</p>`);
+   <p>The site sets no advertising or tracking cookies unless you accept them on the banner. If you accept, Google Analytics sets cookies (named _ga) so we can see how many people visit, which pages they read and how many get in touch. It does not tell us who you are. If you decline, nothing is set. Declining does not affect your quote or how we handle your enquiry. To change your mind, clear this site's data in your browser and the banner will ask again.</p>`);
 
 legalShell('terms', 'Terms and conditions',
   'Terms and Conditions | {{BUSINESS}}',

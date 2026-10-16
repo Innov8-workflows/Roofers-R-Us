@@ -18,7 +18,7 @@ module.exports = {
 
   /* Set when the GA4 property and the Apps Script lead logger exist. Both files
      are inert while these are empty. */
-  analytics: { ga4: '' },
+  analytics: { ga4: 'G-4JDXTT92GN' },   /* GA4 property supplied by Jay 2026-10-16 */
   /* Apps Script web app 'Roofers R US LTD Lead Script' (wicked.jay540@gmail.com), deployed 2026-10-16.
      Redeploy ONLY via Manage deployments -> pencil -> New version, or this URL changes. */
   leadLog: { exec: 'https://script.google.com/macros/s/AKfycbwH1Myxaqx0iP9iE7JpT_6CBzt6oAXYY864KMjwqiWsS0uzqwX490tP16FCNkEnPT0ZXA/exec' },

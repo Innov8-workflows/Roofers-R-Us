@@ -164,8 +164,10 @@
     document.addEventListener('submit', function (e) {
       var f = e.target;
       if (!f || f.id !== 'quoteForm') return;
-      var svc = '';
-      try { svc = (f.elements.service && f.elements.service.value) || ''; } catch (err) {}
+      var val = function (k) { try { return String((f.elements[k] && f.elements[k].value) || '').trim(); } catch (err) { return ''; } };
+      /* Same rule as the site's own handler and lead.js: no name or phone, no lead. */
+      if (!val('name') || !val('phone')) return;
+      var svc = val('service');
       /* generate_lead is a GA4 recommended event name, so it can be marked as a
          key event in the GA4 admin without a custom definition. */
       window.track('generate_lead', { method: 'quote_form', service: svc });
